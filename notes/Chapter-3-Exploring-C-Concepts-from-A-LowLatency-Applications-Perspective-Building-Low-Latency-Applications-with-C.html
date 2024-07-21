@@ -1,0 +1,2373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-08-15 Tue 14:17 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="author" content="Josh Kwok" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+</head>
+<body>
+<div id="content" class="content">
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgc1370b9">1. Exploring C++ Concepts from A Low-Latency Application's Perspective</a></li>
+<li><a href="#orge5d2828">2. Technical requirements</a></li>
+<li><a href="#orgd11531c">3. Approaching low-latency application development in C++</a>
+<ul>
+<li><a href="#orgcc18375">3.1. Coding for correctness first, optimizing second</a></li>
+<li><a href="#orgd9e6dff">3.2. Designing optimal data structures and algorithms</a></li>
+<li><a href="#orgec15024">3.3. Being mindful of the processor</a></li>
+<li><a href="#org4edfb30">3.4. Understanding the cache and memory access costs</a></li>
+<li><a href="#org86b5481">3.5. Understanding how C++ features work under the hood</a></li>
+<li><a href="#orga7f621c">3.6. Leveraging the C++ compiler</a></li>
+<li><a href="#org8cf9105">3.7. Measuring and improving performance</a></li>
+</ul>
+</li>
+<li><a href="#org9102d65">4. Avoiding pitfalls and leveraging C++ features to minimize application latency</a>
+<ul>
+<li><a href="#org955e181">4.1. Choosing storage</a></li>
+<li><a href="#org845eddb">4.2. Choosing data types</a></li>
+<li><a href="#orgccac42c">4.3. Using casting and conversion operations</a></li>
+<li><a href="#orgaa94653">4.4. Optimizing numerical operations</a></li>
+<li><a href="#orgb0ae830">4.5. Optimizing boolean and bitwise operations</a></li>
+<li><a href="#orgb333c63">4.6. Initializing, destroying, copying, and moving objects</a></li>
+<li><a href="#org5ee5dfb">4.7. Using references and pointers</a></li>
+<li><a href="#org23e6cce">4.8. Optimizing jumping and branching</a></li>
+<li><a href="#orga46eaf9">4.9. Calling functions efficiently</a>
+<ul>
+<li><a href="#org836fc06">4.9.1. Thinking before creating an excessive number of functions</a></li>
+<li><a href="#orgdcb9ba3">4.9.2. Grouping related functions together</a></li>
+<li><a href="#org93fa297">4.9.3. Link Time Optimization (LTO) or Whole Program Optimization (WPO)</a></li>
+<li><a href="#orgb76b6e8">4.9.4. Macros, inline functions, and template metaprogramming</a></li>
+<li><a href="#org2b00937">4.9.5. Avoiding function pointers</a></li>
+<li><a href="#orga6fd681">4.9.6. Passing function parameters by reference or pointers</a></li>
+<li><a href="#orgc224afe">4.9.7. Returning simple types from functions</a></li>
+<li><a href="#org18eebbc">4.9.8. Avoiding recursive functions or replacing them with a loop</a></li>
+</ul>
+</li>
+<li><a href="#org5f4f7f1">4.10. Using bitfields</a></li>
+<li><a href="#orgf0547a2">4.11. Using runtime polymorphism</a></li>
+<li><a href="#orge288e2b">4.12. Using compile-time polymorphism</a>
+<ul>
+<li><a href="#org9d25486">4.12.1. Runtime polymorphism using virtual functions</a></li>
+<li><a href="#org003ad8b">4.12.2. Compile-time polymorphism using the CRTP</a></li>
+<li><a href="#orgdfd9983">4.12.3. Invoking polymorphic methods in the two cases</a></li>
+</ul>
+</li>
+<li><a href="#orgf310e69">4.13. Using additional compile-time processing</a></li>
+<li><a href="#org0479f88">4.14. Handling exceptions</a></li>
+<li><a href="#orgdac37ae">4.15. Accessing cache and memory</a>
+<ul>
+<li><a href="#orgeeea9c6">4.15.1. Aligning data</a></li>
+<li><a href="#orgf81a2eb">4.15.2. Accessing data</a></li>
+<li><a href="#orge7638e1">4.15.3. Using large data structures</a></li>
+<li><a href="#org6b93b27">4.15.4. Grouping variables together</a></li>
+<li><a href="#org3188a35">4.15.5. Grouping functions together</a></li>
+</ul>
+</li>
+<li><a href="#orgccdf449">4.16. Dynamically allocating memory</a></li>
+<li><a href="#orgeb729bc">4.17. Multi-threading</a></li>
+</ul>
+</li>
+<li><a href="#org53d161a">5. Maximizing C++ compiler optimization parameters</a>
+<ul>
+<li><a href="#orgfda9436">5.1. Understanding how compilers optimize</a>
+<ul>
+<li><a href="#org0b5ae91">5.1.1. Optimizing the common cases</a></li>
+<li><a href="#orgdd73da5">5.1.2. Minimizing branching</a></li>
+<li><a href="#org82cff87">5.1.3. Reordering and scheduling instructions</a></li>
+<li><a href="#org614b027">5.1.4. Using special instructions depending on the architecture</a></li>
+<li><a href="#org6623497">5.1.5. Vectorization</a></li>
+<li><a href="#org8ec0df9">5.1.6. Strength reduction</a></li>
+<li><a href="#org2e9e9fa">5.1.7. Inlining</a></li>
+<li><a href="#org490d5f2">5.1.8. Constant folding and constant propagation</a></li>
+<li><a href="#org5f59b3c">5.1.9. Dead Code Elimination (DCE)</a></li>
+<li><a href="#orgf75b562">5.1.10. Common Subexpression Elimination (CSE)</a></li>
+<li><a href="#org6bc5323">5.1.11. Peephole optimizations</a></li>
+<li><a href="#orgccddb4a">5.1.12. Tail call optimization</a></li>
+<li><a href="#org39a0d65">5.1.13. Loop unrolling</a></li>
+<li><a href="#orgf6bc43f">5.1.14. Additional loop optimizations</a></li>
+<li><a href="#org4dd4a25">5.1.15. Register variables</a></li>
+<li><a href="#org288fbe0">5.1.16. Live range analysis</a></li>
+<li><a href="#org278e6c4">5.1.17. Rematerialization</a></li>
+<li><a href="#org4d9f3ef">5.1.18. Algebraic reductions</a></li>
+<li><a href="#orgf40059c">5.1.19. Induction variable analysis</a></li>
+<li><a href="#org1edd3cd">5.1.20. Loop invariant code movement</a></li>
+<li><a href="#orgf5abe9d">5.1.21. Static Single Assignment (SSA)-based optimizations</a></li>
+<li><a href="#org130b03b">5.1.22. Devirtualization</a></li>
+</ul>
+</li>
+<li><a href="#orgc1c79fa">5.2. Understanding when compilers fail to optimize</a>
+<ul>
+<li><a href="#orgcb033ac">5.2.1. Failure to optimize across modules</a></li>
+<li><a href="#org6338984">5.2.2. Dynamic memory allocation</a></li>
+<li><a href="#org65042a5">5.2.3. Pointer aliasing</a></li>
+<li><a href="#orgd10bfec">5.2.4. Floating-point induction variables</a></li>
+<li><a href="#orgb016c2d">5.2.5. Virtual functions and function pointers</a></li>
+</ul>
+</li>
+<li><a href="#org91efe08">5.3. Learning about compiler optimization flags</a>
+<ul>
+<li><a href="#org9c2f0c5">5.3.1. Approaching compiler optimization flags</a></li>
+<li><a href="#orgd3e3aca">5.3.2. Understanding the details of GCC optimization flags</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org6ead175">6. Summary</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc1370b9" class="outline-2">
+<h2 id="orgc1370b9"><span class="section-number-2">1.</span> Exploring C++ Concepts from A Low-Latency Application's Perspective</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+In this chapter, we assume that the reader has an intermediate level of understanding of C++ programming concepts, features, and so on. We will discuss how to approach low-latency application development in C++. We will move on to discussing what C++ features to avoid specifically when it comes to low-latency applications. We will then discuss the key C++ features that make it perfect for low-latency applications and how we will use them in the rest of the book. We will conclude by discussing how to maximize compiler optimizations and which C++ compiler flags are important for low-latency applications.
+</p>
+
+<p>
+In this chapter, we will cover the following topics:
+</p>
+
+<ul class="org-ul">
+<li>Approaching low-latency application development in C++</li>
+<li>Avoiding pitfalls and leveraging C++ features to minimize application latency</li>
+<li>Maximizing C++ compiler optimization parameters</li>
+</ul>
+
+<p>
+Let us start by discussing the higher-level ideas when it comes to approaching low-latency application development in C++ in the next section.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge5d2828" class="outline-2">
+<h2 id="orge5d2828"><span class="section-number-2">2.</span> Technical requirements</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+All the code for this book can be found in the GitHub repository for this book at <a href="https://github.com/PacktPublishing/Building-Low-Latency-Applications-with-CPP">https://github.com/PacktPublishing/Building-Low-Latency-Applications-with-CPP</a>. The source code for this chapter is in the Chapter3 directory in the repository.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd11531c" class="outline-2">
+<h2 id="orgd11531c"><span class="section-number-2">3.</span> Approaching low-latency application development in C++</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+In this section, we will discuss the higher-level ideas to keep in mind when trying to build low-latency applications in C++. Overall, the ideas are to understand the architecture that your application runs on, your application use cases that are latency-sensitive, the programming language of your choice (C++ in this case), how to work with the development tools (the compiler, linker, etc.) and how to measure application performance in practice to understand which parts of the application to optimize first.
+</p>
+</div>
+
+<div id="outline-container-orgcc18375" class="outline-3">
+<h3 id="orgcc18375"><span class="section-number-3">3.1.</span> Coding for correctness first, optimizing second</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+For low-latency applications, correct behavior of the application under different use cases and scenarios and robust handling of edge conditions is still the primary focus. A fast application that does not do what we need is useless, so the best approach when it comes to developing a low-latency application is to first code for correctness, not speed. Once the application works correctly, only then the focus should be shifted to optimizing the critical parts of the application while maintaining correctness. This ensures that developers spend time focusing on the correct parts to optimize because it is common to find that our intuition on which pieces are critical to performance does not match what happens in practice. Optimizing the code can also take significantly longer than coding for correctness, so it is important to optimize the most important things first.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd9e6dff" class="outline-3">
+<h3 id="orgd9e6dff"><span class="section-number-3">3.2.</span> Designing optimal data structures and algorithms</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+Designing custom data structures that are optimal for the application's use cases is an important part of building low-latency applications. A good amount of thought needs to be put into each data structure used in the critical parts of the application in terms of scalability, robustness, and performance under the use cases and data encountered <i>in practice</i>. It is important to understand why we mention the term <i>in practice</i> here because different data structure choices will perform better under different use cases and input data even if the different data structures themselves have the same output or behavior. Before we discuss an example of different possible data structures and algorithms to solve the same problem, let us quickly review Big-O notation. Big-O notation is used to describe the asymptotic worst-case time complexity of performing a certain task. The term asymptotic here is used to describe the fact that we discuss cases where we measure the performance over a theoretically infinite (in practice an exceptionally large) number of data points. The asymptotic performance eliminates all the constant terms and describes the performance only as a function of the number of input data elements.
+</p>
+
+<p>
+A simple example of using different data structures to solve the same problem would be searching for an entry in a container by a key value. We can solve this either by using a hash map implementation that has an expected <i>amortized</i> complexity of <b>O(1)</b> or using an array that has a complexity of <b>O(n)</b>, where <b>n</b> is the number of elements in the container. While on paper it might appear that the hash map is clearly the way to go, other factors such as the number of elements, the complexity of applying the hash function to the keys, and so on might change which data structure is the way to go. In this case, for a handful of elements, the array solution is faster due to better cache performance, while for many elements, the hash map solution is better. Here, we chose a suboptimal algorithm because the underlying data structure for the suboptimal algorithm performed better in practice due to cache performance.
+</p>
+
+<p>
+Another slightly different example would be using lookup tables over recomputing values for some mathematical functions, say, trigonometric functions. While it makes complete sense that looking up the result in a precomputed lookup table <i>should</i> always be faster compared to performing some calculations, this might not always be true. For instance, if the lookup table is very large, then the cost of evaluating a floating-point expression might be less than the cost of getting a cache miss and reading the lookup table value from the main memory. The overall application performance might also be better if accessing the lookup table from the main memory leads to a lot of cache pollution, leading to performance degradation in other parts of the application code.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgec15024" class="outline-3">
+<h3 id="orgec15024"><span class="section-number-3">3.3.</span> Being mindful of the processor</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+Modern processors have a lot of architectural and functional details that a low-latency application developer should understand, especially a C++ developer since it allows very low-level control. Modern processors have multiple cores, larger and specialized register banks, pipelined instruction processing where instructions needed next are prefetched while executing the current one, instruction level parallelism, branch predictions, extended instruction sets to facilitate faster and specialized processing, and so on. The better the application developer understands these aspects of the processor on which their applications will run, the better they can avoid sub-optimal code and/or compilation choices and make sure that the compiled machine code is optimal for their target architecture. At the very least, the developer should instruct the compiler to output code for their specific target architecture using compiler optimization flags, but we will discuss that topic later in this chapter.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4edfb30" class="outline-3">
+<h3 id="org4edfb30"><span class="section-number-3">3.4.</span> Understanding the cache and memory access costs</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+Typically, a lot of effort is put into the design and development of data structures and algorithms when it comes to low-latency application development from the perspective of reducing the amount of work done or the number of instructions executed. While this is the correct approach, in this section, we would like to point out that thinking about cache and memory accesses is equally important.
+</p>
+
+<p>
+We saw in the previous sub-section, <i>Designing optimal data structures and algorithms</i>, that it is common for data structures and algorithms that are sub-optimal on paper to outperform ones that are optimal on paper. A large reason behind that can be the higher cache and memory access costs for the optimal solution outweighing the time saved because of the reduced number of instructions the processor needs to execute. Another way to think about this is that even though the amount of work from the perspective of the number of algorithmic steps is less, in practice, it takes longer to finish with the modern processor, cache, and memory access architectures today.
+</p>
+
+<p>
+Let us quickly review the memory hierarchy in a modern computer architecture. Note that details of what we will recap here can be found in our other book, <i>Developing High-Frequency Trading Systems</i>. The key points here are that the memory hierarchy works in such a way that if the CPU cannot find the data or instruction it needs next in the register, it goes to the L0 cache, and if it cannot find it there, goes to the L1 cache, L2, other caches, and so on, then goes to the main memory in that order. Note that the storage is accessed from fastest to slowest, which also happens to be least amount of space to most amount of space. The art of effective low-latency and cache-friendly application development relies on writing code that is cognizant of code and data access patterns to maximize the likelihood of finding data in the fastest form of storage possible. This relies on maximizing the concepts of <b>temporal locality</b> and <b>spatial locality</b>. These terms mean that data accessed recently is likely to be in the cache and data next to what we just accessed is likely to be in the cache, respectively. The following diagram visually lays out the register, cache, and memory banks and provides some data on access times from the CPU. Note that there is a good amount of variability in the access times depending on the hardware and the constant improvements being made to technologies. The key takeaway here should be that there is a significant increase in access times as we go from CPU registers to cache banks to the main memory.
+</p>
+
+
+<div id="org2c7652e" class="figure">
+<p><img src="file:///Users/toeinriver/Documents/org/web/WebImg/30dad3e8fd38c3203fe008ab0944cd21b7b6598a99d3dde0c1c6361b670078dd.jpg" alt="30dad3e8fd38c3203fe008ab0944cd21b7b6598a99d3dde0c1c6361b670078dd.jpg" />
+</p>
+</div>
+
+<p>
+Figure 3.1 &#x2013; The hierarchy of memory in modern computer architectures.
+</p>
+
+<p>
+I would advise you to think carefully about the cache and memory access patterns for the algorithm locally, as well as the entire application globally, to make sure that your source code optimizes cache and memory access patterns, which will boost overall application performance. If you have a function that executes very quickly when it is called but causes a lot of cache pollution, that will degrade the complete application's performance because other components will incur additional cache miss penalties. In such a case, we have failed in our objective of having an application that performs optimally even though we might have managed to make this function perform optimally locally.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org86b5481" class="outline-3">
+<h3 id="org86b5481"><span class="section-number-3">3.5.</span> Understanding how C++ features work under the hood</h3>
+<div class="outline-text-3" id="text-3-5">
+<p>
+When developing low-latency applications, it is very important that the developers have an extremely good understanding of how the high-level language abstractions work at a lower level or “under the hood.” For applications that are not latency-sensitive, this is perhaps not as important since if the application behaves the way the developer intends it to, the extremely low-level details of how their source code achieves that is not relevant.
+</p>
+
+<p>
+For low-latency applications in C++, the more knowledge the developer has of how their program gets compiled into machine code, the better they can use the programming language to achieve low-latency performance. A lot of high-level abstractions available in C++ improve the ease and speed of development, robustness and safety, maintainability, software design elegance, and so on, but not all of them might be optimal when it comes to low-latency applications.
+</p>
+
+<p>
+Many C++ features, such as dynamic polymorphism, dynamic memory allocation, and exception handling, are great additions to the language for most applications. However, these are best avoided or used sparingly or used in a specific manner when it comes to low-latency applications since they have larger overheads.
+</p>
+
+<p>
+Conversely, traditional programming practices suggest the developer break everything down into numerous very small functions for reusability; use recursive functions when applicable; use <b>Object-Oriented Programming</b> (<b>OOP</b>) principles, such as inheritance and virtual functions; always use smart pointers instead of raw pointers; and so on. These principles are sensible for most applications, but for low-latency applications, these need to be evaluated and used carefully because they might add non-trivial amounts of overhead and latency.
+</p>
+
+<p>
+The key takeaway here is that it is important for low-latency application developers to understand each one of these C++ features very well to understand how they are implemented in machine code and what impact they have on the hardware resources and how they perform in practice.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga7f621c" class="outline-3">
+<h3 id="orga7f621c"><span class="section-number-3">3.6.</span> Leveraging the C++ compiler</h3>
+<div class="outline-text-3" id="text-3-6">
+<p>
+The modern C++ compiler is truly a fascinating piece of software. There is an immense amount of effort invested into building these compilers to be robust and correct. A lot of effort is also made to make them very intelligent in terms of the transformations and optimizations they apply to the developer's high-level source code. Understanding how the compiler translates the developer's code into machine instructions, how it tries to optimize the code, and when it fails is important for low-latency application developers looking to squeeze as much performance out of their applications as possible. We will discuss the workings of the compiler and optimization opportunities extensively in this chapter so that we can learn to work with the compiler instead of against it when it comes to optimizing our final application's representation (machine code executable).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8cf9105" class="outline-3">
+<h3 id="org8cf9105"><span class="section-number-3">3.7.</span> Measuring and improving performance</h3>
+<div class="outline-text-3" id="text-3-7">
+<p>
+We mentioned that the ideal application development journey involves first building the application for correctness and then worrying about optimizing it after that. We also mentioned that it is not uncommon for a developer's intuition to be incorrect when it comes to identifying performance bottlenecks.
+</p>
+
+<p>
+Finally, we also mentioned that the task of optimizing an application can take significantly longer than the task of developing it to perform correctly. For that reason, it is advisable that before embarking on an optimization journey, the developer try to run the application under practical constraints and inputs to check performance. It is important to add instrumentation to the application in different forms to measure the performance and find bottlenecks to understand and prioritize the optimization opportunities. This is also an important step since as the application evolves, measuring and improving performance continues to be part of the workflow, that is, measuring and improving performance is a part of the application's evolution. In the last section of this book, <i>Analyzing and improving performance</i>, we will discuss this idea with a real case study to understand this better.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9102d65" class="outline-2">
+<h2 id="org9102d65"><span class="section-number-2">4.</span> Avoiding pitfalls and leveraging C++ features to minimize application latency</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+In this section, we will look at different C++ features that, if used correctly, can minimize application latency. We will also discuss the details of using these features in a manner that optimizes application performance throughout this sub-section. Now, let us start learning about how to use these features correctly to maximize application performance and avoid the pitfalls to minimize latency. Note that all the code snippets for this chapter are in the <b>Chapter3</b> directory in the GitHub repository for this book.
+</p>
+</div>
+
+<div id="outline-container-org955e181" class="outline-3">
+<h3 id="org955e181"><span class="section-number-3">4.1.</span> Choosing storage</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+Local variables created within a function are stored on the stack by default and the stack memory is also used to store function return values. Assuming no large objects are created, the same range of stack storage space is reused a lot, resulting in great cache performance due to locality of reference.
+</p>
+
+<p>
+Register variables are closest to the processor and are the fastest possible form of storage available. They are extremely limited, and the compiler will try to use them for the local variables that are used the most, another reason to prefer <i>local variables</i>.
+</p>
+
+<p>
+Static variables are inefficient from the perspective of cache performance since that memory cannot be re-used for other variables and accessing static variables is likely a small fraction of all memory accesses. So, it is best to avoid static variables as well as global variables, which have similarly inefficient cache performance.
+</p>
+
+<p>
+The <b>volatile</b> keyword instructs the compiler to disable a lot of optimizations that rely on the assumption that the variable value does not change without the compiler's knowledge. This should only ever be used carefully in multi-threaded use cases since it prevents optimizations such as storing the variables in registers and force-flushing them to the main memory from the cache every time the value changes.
+</p>
+
+<p>
+Dynamically allocated memory is inefficient to allocate and deallocate and, depending on how it is used, can suffer from poor cache performance. More on dynamically allocated memory inefficiencies will be discussed later in this section in the <i>Dynamically allocating</i> <i>memory</i> sub-section.
+</p>
+
+<p>
+An example of C++ optimization technique that leverages storage choice optimization is <b>Small String Optimization</b> (<b>SSO</b>). SSO attempts to use local storage for short strings if they are smaller than a certain size (typically 32 characters) instead of the default of dynamically allocated memory for string content storage.
+</p>
+
+<p>
+In summary, you should think carefully about where the data gets stored during the execution of your program, especially in the critical sections. We should try to use registers and local variables as much as possible and optimize cache performance. Use volatile, static, global, and dynamic memory only when necessary or when it does not affect performance on the critical path.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org845eddb" class="outline-3">
+<h3 id="org845eddb"><span class="section-number-3">4.2.</span> Choosing data types</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+C++ integer operations are typically super-fast as long as the size of the largest register is larger than the integer size. Integers smaller or larger than the register size are sometimes slightly slower than regular integers. This is because the processor must use multiple registers for a single variable and apply some carry-over logic for large integers. Conversely, handling integers smaller than a register size is usually handled by using a regular register, zeroing out the upper bits, using only the lower bits, and possibly invoking a type conversion operation. Note that the extra overhead is very small and generally not something to worry about. Signed and unsigned integers are equally fast, but in some cases unsigned integers are faster than signed integers. The only cases where signed integer operations are a tiny bit slower is where the processor needs to check and adjust for the sign bit. Again, the extra overhead is extremely small when present and not necessarily something we need to worry about in most cases. We will look at the cost of different operations &#x2013; addition, subtraction, comparison, bit operations, and so on typically take a single clock cycle. Multiplication operations take longer, and division operations take longest.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgccac42c" class="outline-3">
+<h3 id="orgccac42c"><span class="section-number-3">4.3.</span> Using casting and conversion operations</h3>
+<div class="outline-text-3" id="text-4-3">
+<p>
+Converting between signed and unsigned integers is free. Converting integers from a smaller size into a larger one can take a single clock cycle but sometimes can be optimized to be free. Converting integer sizes down from a larger size into a smaller one has no additional cost.
+</p>
+
+<p>
+Conversion between floats, doubles, and long doubles is typically free except under very few conditions. Conversion of signed and unsigned integers into floats or doubles takes a few clock cycles. Conversion from unsigned integers can take longer than signed integers.
+</p>
+
+<p>
+<b>Conversion from floating-point values into integers can be extremely expensive</b> &#x2013; 50 to 100 clock cycles or more. If these conversions are on the critical path, it is common for low-latency application developers to try and make these more efficient by <b>enabling special instruction sets, avoiding or refactoring these conversions, if possible, using special assembly language rounding implementations</b>, and so on.
+</p>
+
+<p>
+<b>Converting pointers from one type into another type is completely free;</b> whether the conversions are safe or not is the developer's responsibility. Type-casting a pointer to an object to a pointer to a different object violates the strict aliasing rule stating that <i>two pointers of different types cannot point to the same memory location</i>, which really means that it is possible the compiler might not use the same register to store the two different pointers, even though they point to the same address. Remember that the CPU registers are the fastest form of storage available to the processor but are extremely limited in storage capacity. So, when an extra register gets used to store the same variable, it is an inefficient use of the registers and negatively impacts performance overall.
+</p>
+
+<p>
+An example of type-casting a pointer to be a different object is presented here. This example uses a conversion from <b>double *</b> into <b>uint64<sub>t</sub> *</b> and modifies the sign bit using the <b>uint64<sub>t</sub></b> pointer. This is nothing more than a convoluted and more efficient method of achieving <b>x = -std::abs(x)</b> but demonstrates how this violates the strict aliasing rule (<b>strict<sub>alias.cpp</sub></b> in <b>Chapter3</b> on GitHub):
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #808080;">#include</span> <span style="color: #707183;">&lt;</span><span style="color: #008000;">cstdio</span><span style="color: #707183;">&gt;</span>
+<span style="color: #808080;">#include</span> <span style="color: #707183;">&lt;</span><span style="color: #008000;">cstdint</span><span style="color: #707183;">&gt;</span>
+<span style="color: #6434A3;">int</span> <span style="color: #006699;">main</span><span style="color: #707183;">()</span> <span style="color: #707183;">{</span>
+  <span style="color: #6434A3;">double</span> <span style="color: #BA36A5;">x</span> = 100;
+  <span style="color: #4f97d7; font-weight: bold; font-style: italic;">const</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">auto</span> <span style="color: #BA36A5;">orig_x</span> = x;
+  <span style="color: #4f97d7; font-weight: bold; font-style: italic;">auto</span> <span style="color: #BA36A5;">x_as_ui</span> = <span style="color: #7388D6;">(</span><span style="color: #6434A3;">uint64_t</span> *<span style="color: #7388D6;">)</span> <span style="color: #7388D6;">(</span>&amp;x<span style="color: #7388D6;">)</span>;
+  *x_as_ui |= 0x8000000000000000;
+  printf<span style="color: #7388D6;">(</span>&#8220;orig_x:%0.2f x:%0.2f &amp;x:%p &amp;x_as_ui:%p\n&#8221;,
+       orig_x, x, &amp;x, x_as_ui<span style="color: #7388D6;">)</span>;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+
+<p>
+It yields something like this:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #D0372D;">orig_x</span>:100.00 x:-100.00 &amp;x:0x7fff1e6b00d0 &amp;x_as_ui:0x7fff1e6b00d0
+</pre>
+</div>
+
+<p>
+Using modern C++ casting operations, <b>const<sub>cast</sub></b>, <b>static<sub>cast</sub></b>, and <b>reinterpret<sub>cast</sub></b> do not incur any additional overhead when used. However, when it comes to <b>dynamic<sub>cast</sub></b>, which converts an object of a certain class into an object of a different class, this can be expensive at runtime. <b>dynamic<sub>cast</sub></b> checks whether the conversion is valid using <b>Run-Time Type Information</b> (<b>RTTI</b>), which is slow and possibly throws an exception if the conversion is invalid &#x2013; this makes it safer but increases latency.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgaa94653" class="outline-3">
+<h3 id="orgaa94653"><span class="section-number-3">4.4.</span> Optimizing numerical operations</h3>
+<div class="outline-text-3" id="text-4-4">
+<p>
+Typically, double-precision calculations take about the same time as single-precision operations. In general, for integers and floating values, additions are fast, multiplications are slightly more expensive than additions, and division is quite a bit more expensive than multiplication. Integer multiplications take around 5 clock cycles and floating-point multiplications take around 8 clock cycles. Integer additions take a single clock cycle on most processors and floating-point additions take around 2-5 clock cycles. Floating-point divisions and integer divisions both take about the same amount of time around 20-80 clock cycles, depending on the processor and depending on whether it has special floating-point operations or not.
+</p>
+
+<p>
+Compilers will try to rewrite and reduce expressions wherever possible to prefer faster operations such as rewriting divisions to be multiplications by reciprocals. Multiplication and division by values that are powers of 2 are significantly faster because the compiler rewrites them to be bit-shift operations, which are much faster. There is additional overhead when the compiler uses this optimization since it must handle signs and rounding errors. Obviously, this only applies when the expressions involve values that can be determined to be powers of 2 at compile time. When dealing with multi-dimensional arrays, for instance, the compiler converts multiplications into bitwise shift operations wherever possible.
+</p>
+
+<p>
+Mixing single- and double-precision operations in the same expression and expressions involving floating and integer values should be avoided because they implicitly force type conversions. We saw before that type conversions are not always free, so these expressions can take longer to compute than we would guess. For instance, when mixing single- and double-precision values in an expression, the single-precision values must first be converted into double-precision values, which can consume a few clock cycles before the expression is computed. Similarly, when mixing integers and floating-point values in an expression, either the floating-point value has to be converted into an integer or the integer must be converted into a floating-point value, which adds a few clock cycles to the final calculation time.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb0ae830" class="outline-3">
+<h3 id="orgb0ae830"><span class="section-number-3">4.5.</span> Optimizing boolean and bitwise operations</h3>
+<div class="outline-text-3" id="text-4-5">
+<p>
+Boolean operations such as <b>logical AND</b> (<b>&amp;&amp;</b>) and <b>logical OR</b> (<b>||</b>) are evaluated such that for <b>&amp;&amp;</b>, if the first operand is false, then the second one is not evaluated, and, for <b>||</b>, if the first operand is true, then the second one is not evaluated. A simple optimization technique is to order the operands of <b>&amp;&amp;</b> in order from lowest to highest probability of being evaluated to true.
+</p>
+
+<p>
+Similarly, for <b>||</b>, ordering the operands from highest to lowest probability of being true is best. This technique is referred to as <b>short-circuiting</b> the boolean operations and it not only reduces the number of times these operands are evaluated but also improves branch prediction. This technique cannot be used if the order of the operands is important to the program, for instance, if we require that for an <b>&amp;&amp;</b> boolean operation, the second operand should not be evaluated if the first one is false. Or for an <b>||</b> boolean operation, the second operand should not be evaluated if the first one is true, and so on.
+</p>
+
+<p>
+Another aspect of using boolean variables is understanding the way they are stored. Boolean variables are stored as 8 bits and not a single bit, as might match our intuition from the way they are used. What this means is that operations involving boolean values have to be implemented such that any 8-bit values other than 0 are treated as 1, which leads to implementations with branches in them with comparisons against 0. For example, the <b>c = a &amp;&amp; b;</b> expression is implemented as follows:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span><span style="color: #707183;">(</span>a != 0<span style="color: #707183;">)</span> <span style="color: #707183;">{</span>
+ <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span><span style="color: #7388D6;">(</span>b != 0<span style="color: #7388D6;">)</span> <span style="color: #7388D6;">{</span>
+   c = <span style="color: #D0372D;">true</span>;
+ <span style="color: #7388D6;">}</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">else</span> <span style="color: #7388D6;">{</span>
+   c = <span style="color: #D0372D;">false</span>;
+ <span style="color: #7388D6;">}</span>
+<span style="color: #707183;">}</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">else</span> <span style="color: #707183;">{</span>
+ c = <span style="color: #D0372D;">false</span>;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+
+<p>
+If there was a guarantee that <b>a</b> and <b>b</b> could not have values other than 0 or 1, then <b>c = a &amp;&amp; b;</b> would simply be <b>c = a &amp; b;</b>, which is super-fast and avoids branching and branching-related overheads.
+</p>
+
+<p>
+Bitwise operations can also help speed up other cases of boolean expressions by treating each bit of an integer as a single boolean variable and then rewriting expressions involving comparisons of multiple booleans with bit-masking operations. For instance, take an expression such as this, where <b>market<sub>state</sub></b> is <b>uint64<sub>t</sub></b> and <b>PreOpen</b>, <b>Opening</b>, and <b>Trading</b> are enum values that reflect different market states:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span><span style="color: #707183;">(</span>market_state == PreOpen ||
+   market_state == Opening ||
+   market_state == Trading<span style="color: #707183;">)</span> <span style="color: #707183;">{</span>
+  <span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">do something...</span>
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+
+<p>
+It can be rewritten as follows:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span><span style="color: #707183;">(</span>market_state &amp; <span style="color: #7388D6;">(</span>PreOpen | Opening | Trading<span style="color: #7388D6;">)</span><span style="color: #707183;">)</span> <span style="color: #707183;">{</span>
+  <span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">do something...</span>
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+
+<p>
+If the enum values are chosen such that each bit in the <b>market<sub>state</sub></b> variable represents a state of true or false, one choice would be for the <b>PreOpen</b>, <b>Opening</b>, and <b>Trading</b> enums to be set to <b>0x001</b>, <b>0x010</b>, and <b>0x100</b>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb333c63" class="outline-3">
+<h3 id="orgb333c63"><span class="section-number-3">4.6.</span> Initializing, destroying, copying, and moving objects</h3>
+<div class="outline-text-3" id="text-4-6">
+<p>
+Constructors and destructors for developer-defined classes should be kept as light and efficient as possible since they can be called without the developer expecting it. Keeping these methods super-simple and small also allows the compiler to <i>inline</i> these methods to improve performance. The same applies to copy and move constructors, which should be kept simple, with using move constructors preferred over using copy constructors wherever possible. In many cases where high levels of optimization are required, the developer can delete the default constructor and the copy constructor to make sure unnecessary or unexpected copies of their objects are not being made. <sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5ee5dfb" class="outline-3">
+<h3 id="org5ee5dfb"><span class="section-number-3">4.7.</span> Using references and pointers</h3>
+<div class="outline-text-3" id="text-4-7">
+<p>
+A lot of C++ features are built around implicitly accessing class members through the <b>this</b> pointer, so access through references and pointers occurs very frequently regardless of whether the developer explicitly does so or not. Accessing objects through pointers and references is mostly as efficient as directly accessing the objects. This is because most modern processors have support to efficiently fetch the pointer values and dereference them. The big disadvantage of using references and pointers is that they take up an extra register for the pointer themselves and the other one consists of the extra dereference instructions to access the variable pointed to by the pointer value.
+</p>
+
+<p>
+Pointer arithmetic is just as fast as integer arithmetic except computing the differences between pointers requires a division by the size of the object, which can potentially be very slow. This is not necessarily a problem if the size of the type of object is a multiple of 2, which is quite often the case with primitive types and optimized structures.
+</p>
+
+<p>
+Smart pointers are an important feature of modern C++ that offers safety, life cycle management, automatic memory management, and clear ownership control for dynamically allocated objects. Smart pointers such as <b>std::unique<sub>ptr</sub></b>, <b>std::shared<sub>ptr</sub></b>, and <b>std::weak<sub>ptr</sub></b> use the <b>Resource Acquisition is Initialization</b> (<b>RAII</b>) C++ paradigm. There is an extra cost associated with <b>std::shared<sub>ptr</sub></b> due to the reference counting overhead but generally, smart pointers are expected to add very little overhead to the entire program unless there are a lot of them.
+</p>
+
+<p>
+Another important aspect of using pointers is that it can prevent compiler optimizations due to <b>Pointer Aliasing</b>. This is because, while it may be obvious to the user, at compile time, the compiler cannot guarantee that two pointer variables in the code will never point to the same memory address. Under those theoretical possible cases of pointer aliasing, some compiler optimizations would change the outcome of code; hence, those optimizations are disabled. For instance, the following code would prevent the compiler from applying loop-invariant code motion. This is despite there being no overlap between pointers <b>a[0]</b> to <b>a[n-1]</b> and <b>b</b>. That means that this optimization is valid because <b>*b</b> is a constant for the entire loop and can be computed once:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #6434A3;">void</span> <span style="color: #006699;">func</span><span style="color: #707183;">(</span><span style="color: #6434A3;">int</span>* <span style="color: #BA36A5;">a</span>, <span style="color: #6434A3;">int</span>* <span style="color: #BA36A5;">b</span>, <span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">n</span><span style="color: #707183;">)</span> <span style="color: #707183;">{</span>
+  <span style="color: #4f97d7; font-weight: bold; font-style: italic;">for</span><span style="color: #7388D6;">(</span><span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">i</span> = 0; i &lt; n; ++i<span style="color: #7388D6;">)</span> <span style="color: #7388D6;">{</span>
+    a<span style="color: #909183;">[</span>i<span style="color: #909183;">]</span> = *b;
+  <span style="color: #7388D6;">}</span>
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+
+<p>
+There are really two options for instructing the compiler to assume no pointer aliasing in cases where the developer is confident that there is no behavior that is dependent on the side effects of pointer aliasing. Use <b>_<sub>restrict</sub>__</b>, or <b>_<sub>restrict</sub></b>, a similar specifier keyword, for your compiler on the function arguments or functions to specify no aliasing on the pointers. However, this is a hint, and the compiler does not guarantee that this will make a difference. The other option is to specify the <b>-fstrict-aliasing</b> compiler option to assume no pointer aliasing globally. The following code block demonstrates the use of the <b>restrict</b> specifier for the preceding <b>func()</b> function (<b>pointer<sub>alias.cpp</sub></b> in <b>Chapter3</b> on GitHub):
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #6434A3;">void</span> <span style="color: #006699;">func</span><span style="color: #707183;">(</span><span style="color: #6434A3;">int</span> *<span style="color: #BA36A5;">__restrict</span> a, <span style="color: #6434A3;">int</span> *<span style="color: #BA36A5;">__restrict</span> b, <span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">n</span><span style="color: #707183;">)</span> <span style="color: #707183;">{</span>
+  <span style="color: #4f97d7; font-weight: bold; font-style: italic;">for</span> <span style="color: #7388D6;">(</span><span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">i</span> = 0; i &lt; n; ++i<span style="color: #7388D6;">)</span> <span style="color: #7388D6;">{</span>
+    a<span style="color: #909183;">[</span>i<span style="color: #909183;">]</span> = *b;
+  <span style="color: #7388D6;">}</span>
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org23e6cce" class="outline-3">
+<h3 id="org23e6cce"><span class="section-number-3">4.8.</span> Optimizing jumping and branching</h3>
+<div class="outline-text-3" id="text-4-8">
+<p>
+In modern processor pipelines, instructions and data are fetched and decoded in stages. When there is a branch instruction, the processor tries to predict which of the branches will be taken and fetches and decodes instructions from that branch. However, when the processor has mispredicted the branch taken, it takes 10 or more clock cycles before it detects the misprediction. After that, it must spend a bunch of clock cycles fetching the instructions and data from the correct branch and evaluate it. The key takeaway here is that a branch misprediction wastes many clock cycles every time it happens.
+</p>
+
+<p>
+Let us discuss some of the most used forms of jumps and branches in C++:
+</p>
+
+<ul class="org-ul">
+<li><b>if-else</b> branching is the most common thing that comes to mind when discussing branching. Long chains of <b>if-else</b> conditionals are best avoided, if possible, because it is difficult to predict these correctly as they grow. Keeping the number of conditions small and trying to structure them so they are more predictable is the way to optimize them.</li>
+<li><b>for</b> and <b>while</b> loops are also types of branching that are typically predicted well if the loop count is relatively small. This, of course, gets complicated with nested loops and loops containing hard-to-predict exit conditions.</li>
+<li><b>switch</b> statements are branches with multiple jump targets, so they can be very difficult to predict. When label values are widely spread out, the compiler must use <b>switch</b> statements as a long sequence of <b>if-else</b> branching trees. An optimization technique that works well with <b>switch</b> statements is to assign case label values that increment by one and are arranged in ascending order because there is a very good chance they will get implemented as jump tables, which is significantly more efficient.</li>
+</ul>
+
+<p>
+Replacing branching with table lookups containing different output values in the source code is a good optimization wherever possible. We can also create a table of function pointers indexed by jump conditions but beware that function pointers are not necessarily much more efficient than the branching itself.
+</p>
+
+<p>
+<b>Loop unrolling</b> can also help with minimizing branching if there are branches within a loop that are difficult to predict and can lead to a lot of branch mispredictions. We will discuss loop unrolling in detail later, but for now, let us briefly introduce the idea. Loop unrolling duplicates the body of the loop multiple times in order to avoid the checks and branching that determine whether a loop should continue. The compiler will attempt to unroll loops if possible, but it is often best if the developer does it themself. For example, consider a simple loop such as this with a low loop counter (<b>loop<sub>unroll.cpp</sub></b> in <b>Chapter3</b> on GitHub):
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">a</span><span style="color: #707183;">[</span>5<span style="color: #707183;">]</span>; a<span style="color: #707183;">[</span>0<span style="color: #707183;">]</span> = 0;
+ <span style="color: #4f97d7; font-weight: bold; font-style: italic;">for</span><span style="color: #707183;">(</span><span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">i</span> = 1; i &lt; 5; ++i<span style="color: #707183;">)</span>
+   a<span style="color: #707183;">[</span>i<span style="color: #707183;">]</span> = a<span style="color: #707183;">[</span>i-1<span style="color: #707183;">]</span> + 1;
+</pre>
+</div>
+
+<p>
+The compiler can unroll the loop into the following code shown here. Note that it is more than likely that for such a simple example, the compiler will use additional optimizations and reduce this loop even further. But for now, we limit ourselves to only present the impact of loop unrolling:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">a</span><span style="color: #707183;">[</span>5<span style="color: #707183;">]</span>;
+a<span style="color: #707183;">[</span>0<span style="color: #707183;">]</span> = 0;
+a<span style="color: #707183;">[</span>1<span style="color: #707183;">]</span> = a<span style="color: #707183;">[</span>0<span style="color: #707183;">]</span> + 1; a<span style="color: #707183;">[</span>2<span style="color: #707183;">]</span> = a<span style="color: #707183;">[</span>1<span style="color: #707183;">]</span> + 1;
+a<span style="color: #707183;">[</span>3<span style="color: #707183;">]</span> = a<span style="color: #707183;">[</span>2<span style="color: #707183;">]</span> + 1; a<span style="color: #707183;">[</span>4<span style="color: #707183;">]</span> = a<span style="color: #707183;">[</span>3<span style="color: #707183;">]</span> + 1;
+</pre>
+</div>
+
+<p>
+Compile-time branching using an <b>if constexpr (condition-expression) {}</b> format can obviously help a lot by moving the overhead of branching to compile time, but this requires that <b>condition-expression</b> be something that can be evaluated at compile time. This is technically part of the <b>Compile time Polymorphism</b> or <b>Template Metaprogramming</b> paradigm, which we will discuss more in the <i>Using compile-time polymorphism</i> sub-section in this section.
+</p>
+
+<p>
+It is possible to provide the compiler with branch prediction hints in the source code since the developer has a better idea of the expected use cases. These do not make a significant difference overall since modern processors are good at learning which branches are most likely to be taken after a few iterations through the branches. For GNU C++, these are traditionally implemented as follows using <b>_<sub>builtin</sub><sub>expect</sub></b>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #808080;">#define</span> <span style="color: #006699;">LIKELY_CONDITION</span><span style="color: #707183;">(</span><span style="color: #BA36A5;">x</span><span style="color: #707183;">)</span> __builtin_expect<span style="color: #707183;">(</span>!!<span style="color: #7388D6;">(</span>x<span style="color: #7388D6;">)</span>, 1<span style="color: #707183;">)</span>
+<span style="color: #808080;">#define</span> <span style="color: #BA36A5;">UNLIKELY_CONDITION</span> <span style="color: #707183;">(</span>x<span style="color: #707183;">)</span> __builtin_expect<span style="color: #707183;">(</span>!!<span style="color: #7388D6;">(</span>x<span style="color: #7388D6;">)</span>, 0<span style="color: #707183;">)</span>
+</pre>
+</div>
+
+<p>
+For C++ 20, these are standardized as the *<a href="http://127.0.0.1:62453/Dash/kmcospxy/en.cppreference.com/w/cpp/language/attributes/likely.html">likely, unlikely</a> attributes.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga46eaf9" class="outline-3">
+<h3 id="orga46eaf9"><span class="section-number-3">4.9.</span> Calling functions efficiently</h3>
+<div class="outline-text-3" id="text-4-9">
+<p>
+There are numerous overheads associated with calling functions &#x2013; the overhead of fetching the function address and jumping to it, passing the parameters to it and returning the results, setting up the stack frame, saving and restoring registers, exception handling, possible latency in the code cache misses, and so on.
+</p>
+
+<p>
+When breaking up the code base into functions, some general things to consider to maximize the performance would be the following.
+</p>
+</div>
+
+<div id="outline-container-org836fc06" class="outline-4">
+<h4 id="org836fc06"><span class="section-number-4">4.9.1.</span> Thinking before creating an excessive number of functions</h4>
+<div class="outline-text-4" id="text-4-9-1">
+<p>
+Functions should only be created if there is enough re-usability to justify them. The criteria for creating functions should be logical program flow and re-usability and not the length of code because, as we saw, calling functions is not free, and creating excessive functions is not a good idea.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgdcb9ba3" class="outline-4">
+<h4 id="orgdcb9ba3"><span class="section-number-4">4.9.2.</span> Grouping related functions together</h4>
+<div class="outline-text-4" id="text-4-9-2">
+<p>
+Class member and non-class member functions typically get assigned memory addresses in the order in which they are created, so it is generally a good idea to group together performance-critical functions that call each other frequently or operate on the same datasets. This facilitates better code and data cache performance.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org93fa297" class="outline-4">
+<h4 id="org93fa297"><span class="section-number-4">4.9.3.</span> Link Time Optimization (LTO) or Whole Program Optimization (WPO)</h4>
+<div class="outline-text-4" id="text-4-9-3">
+<p>
+When writing performance-critical functions, it is important to place them in the same module where they are used if possible. Doing so unlocks a lot of compiler optimizations, the most important of which is the ability to inline the function call.
+</p>
+
+<p>
+Using the <b>static</b> keyword to declare a function does the equivalent of putting it in an <b>anonymous namespace</b>, which makes it local to the translation unit it is used in. Specifying the <b>inline</b> keyword achieves this as well, but we will explore that in the next section.
+</p>
+
+<p>
+Specifying WPO and LTO parameters for the compiler instructs it to treat the entire code base as a single module and enable compiler optimizations across modules. Without enabling these compiler options, optimizations occur across functions in the same module but not between modules which can be quite sub-optimal for large code bases which typically have a lot of source files and modules.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb76b6e8" class="outline-4">
+<h4 id="orgb76b6e8"><span class="section-number-4">4.9.4.</span> Macros, inline functions, and template metaprogramming</h4>
+<div class="outline-text-4" id="text-4-9-4">
+<p>
+<b>Macro expressions</b> are a pre-processor directive and are expanded even before compilation begins. This eliminates the overhead associated with calling and returning from functions at runtime. Macros have several disadvantages though, such as namespace collision, cryptic compilation errors, unnecessary evaluation of conditions and expressions, and so on.
+</p>
+
+<p>
+Inlined functions, whether they are part of a class or not, are similar to macros but solve a lot of the problems associated with macros. Inlined functions are expanded at their usage during compilation and link times and eliminate the overhead associated with function calls.
+</p>
+
+<p>
+Using template metaprogramming, it is possible to move a lot of the computation load from runtime to compile time. This involves using partial and full template specialization and recursive loop templates. However, template metaprogramming can be clumsy and difficult to use, compile, and debug and should only really be used where the performance improvements justify the increased development discomfort. We will explore templates and template metaprogramming shortly.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2b00937" class="outline-4">
+<h4 id="org2b00937"><span class="section-number-4">4.9.5.</span> Avoiding function pointers</h4>
+<div class="outline-text-4" id="text-4-9-5">
+<p>
+Calling a function through a function pointer has a larger overhead than directly calling the function. For one, if the pointer changes, then the compiler cannot predict which function will be called and cannot pre-fetch the instructions and data. Additionally, this also prevents a lot of compiler optimizations since these cannot be inlined at compile time.
+</p>
+
+<p>
+The <b>std::function</b> is a much more powerful construct available in modern C++ but should be used only if necessary since there is potential for misuse and extra overhead of a few clock cycles compared to direct inlined functions. <b>std::bind</b> is another construct to be very careful about when using and should also only be used if absolutely necessary. If <b>std::function</b> must be used, try to see whether you can use a lambda expression instead of <b>std::bind</b> since that is typically a few clock cycles faster to invoke. Overall, be careful when using <b>std::function</b> and/or <b>std::bind</b> since a lot of developers are surprised that these constructs can perform virtual function calls and invoke dynamic memory allocations under the hood.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga6fd681" class="outline-4">
+<h4 id="orga6fd681"><span class="section-number-4">4.9.6.</span> Passing function parameters by reference or pointers</h4>
+<div class="outline-text-4" id="text-4-9-6">
+<p>
+For primitive types, passing parameters by value is super-efficient. For composite types that are function parameters, the preferred way of passing them would be const references. The <b>constness</b> means that the object cannot be modified and allows the compiler to apply optimizations based on that and the reference allows the compiler to possibly inline the object itself. If the function needs to modify the object passed to it, then obviously a non-const reference or pointer is the way to go.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc224afe" class="outline-4">
+<h4 id="orgc224afe"><span class="section-number-4">4.9.7.</span> Returning simple types from functions</h4>
+<div class="outline-text-4" id="text-4-9-7">
+<p>
+Functions that return primitive types are very efficient. Returning composite types is much more inefficient and can lead to a couple of copies being created in some cases, which is quite sub-optimal especially if these are large and/or have slow copy constructors and assignment operators. When the compiler can apply <b>Return Value Optimization</b> (<b>RVO</b>), it can eliminate the temporary copy created and just write the result to the caller's object directly. The optimal way to return a composite type is to have the caller create an object of that type and pass it to the function using a reference or a pointer for the function to modify.
+</p>
+
+<p>
+Let us look at an example to explain what happens with RVO; let us say we have the following function definition and call to the function (<b>rvo.cpp</b> in <b>Chapter3</b> on GitHub):
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #808080;">#include</span> <span style="color: #707183;">&lt;</span><span style="color: #008000;">iostream</span><span style="color: #707183;">&gt;</span>
+<span style="color: #4f97d7; font-weight: bold; font-style: italic;">struct</span> <span style="color: #6434A3;">LargeClass</span> <span style="color: #707183;">{</span>
+  <span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">i</span>;
+  <span style="color: #6434A3;">char</span> <span style="color: #BA36A5;">c</span>;
+  <span style="color: #6434A3;">double</span> <span style="color: #BA36A5;">d</span>;
+<span style="color: #707183;">}</span>;
+<span style="color: #4f97d7; font-weight: bold; font-style: italic;">auto</span> <span style="color: #006699;">rvoExample</span><span style="color: #707183;">(</span><span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">i</span>, <span style="color: #6434A3;">char</span> <span style="color: #BA36A5;">c</span>, <span style="color: #6434A3;">double</span> <span style="color: #BA36A5;">d</span><span style="color: #707183;">)</span> <span style="color: #707183;">{</span>
+  <span style="color: #4f97d7; font-weight: bold; font-style: italic;">return</span> LargeClass<span style="color: #7388D6;">{</span>i, c, d<span style="color: #7388D6;">}</span>;
+<span style="color: #707183;">}</span>
+<span style="color: #6434A3;">int</span> <span style="color: #006699;">main</span><span style="color: #707183;">()</span> <span style="color: #707183;">{</span>
+  <span style="color: #6434A3;">LargeClass</span> <span style="color: #BA36A5;">lc_obj</span> = rvoExample<span style="color: #7388D6;">(</span>10, &#8216;c&#8217;, 3.14<span style="color: #7388D6;">)</span>;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+
+<p>
+With RVO, instead of creating a temporary <b>LargeClass</b> object inside <b>rvoExample()</b> and then copying it into the <b>LargeClass lc<sub>obj</sub></b> object in <b>main()</b>, the <b>rvoExample()</b> function can directly update <b>lc<sub>obj</sub></b> and avoid the temporary object and copy.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org18eebbc" class="outline-4">
+<h4 id="org18eebbc"><span class="section-number-4">4.9.8.</span> Avoiding recursive functions or replacing them with a loop</h4>
+<div class="outline-text-4" id="text-4-9-8">
+<p>
+Recursive functions are inefficient because of the overhead of calling themselves repeatedly. Additionally, recursive functions can go very deep in the stack and take up a lot of stack space, and, in worst-case scenarios, even cause a stack overflow. This causes a lot of cache misses due to the new memory areas and makes predicting the return address difficult and inefficient. In such cases, replacing recursive functions with a loop is significantly more efficient since it avoids a lot of the cache performance issues that recursive functions encounter.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5f4f7f1" class="outline-3">
+<h3 id="org5f4f7f1"><span class="section-number-3">4.10.</span> Using bitfields</h3>
+<div class="outline-text-3" id="text-4-10">
+<p>
+<b>Bitfields</b> are just structs where the developer controls the number of bits assigned to each member. This makes the data as compact as possible and greatly improves cache performance for many objects. Bitfield members are also usually modified using bitmask operations, which are very efficient, as we have seen before. Accessing the members of bitfields is less efficient than accessing the members of a regular structure, so it is important to carefully assess whether using bitfields and improving the cache <b>performance</b> is worthwhile.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf0547a2" class="outline-3">
+<h3 id="orgf0547a2"><span class="section-number-3">4.11.</span> Using runtime polymorphism</h3>
+<div class="outline-text-3" id="text-4-11">
+<p>
+<b>Runtime polymorphism</b> is an elegant solution when the member function that needs to be called will be determined at runtime instead of compile time. <b>Virtual</b> functions are the key to implementing runtime polymorphism, but they have an additional overhead compared to non-virtual function calls.
+</p>
+
+<p>
+Usually, the compiler cannot determine at compile time which implementation of a virtual function will be called. At runtime, this causes many branch mispredictions unless the same version of the virtual function gets called most of the time. It is possible for the compiler to determine the virtual function implementation called at compile time using <b>devirtualization</b>, but this is not possible in many cases. The primary problem with <b>virtual</b> functions is that the compiler cannot apply many of the compile-time optimizations in the presence of <b>virtual</b> functions, the most important one being inlining.
+</p>
+
+<p>
+Inheritance in C++ is another important OOP concept but be careful when the inheritance structure gets too complicated since there are many subtle inefficiencies that can be introduced. Child classes inherit every single data member from their parent class, so the size of the child classes can become quite large and lead to poor cache performance.
+</p>
+
+<p>
+In general, instead of inheriting from multiple parent classes, we can consider using the <b>Composition</b> paradigm, where the child class has members of different parent class types instead of inheriting from them. This avoids complications related to accessing child class objects using different parent class pointers, offsets of the data members and methods in the child classes, and so on. The following example (<b>composition.cpp</b> in <b>Chapter3</b> on GitHub) builds <b>OrderBook</b>, which basically holds a vector of <b>Order</b> objects, in two different ways. The benefit (if used properly) of the inheritance model is that it now inherits all the methods that <b>std::vector</b> provides while the composition model would need to implement them. In this example, we demonstrate this by implementing a <b>size()</b> method in <b>CompositionOrderBook</b>, which calls the <b>size()</b> method on the <b>std::vector</b> object, while <b>InheritanceOrderBook</b> inherits it directly from <b>std::vector</b>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #808080;">#include</span> <span style="color: #707183;">&lt;</span><span style="color: #008000;">cstdio</span><span style="color: #707183;">&gt;</span>
+<span style="color: #808080;">#include</span> <span style="color: #707183;">&lt;</span><span style="color: #008000;">vector</span><span style="color: #707183;">&gt;</span>
+<span style="color: #4f97d7; font-weight: bold; font-style: italic;">struct</span> <span style="color: #6434A3;">Order</span> <span style="color: #707183;">{</span> <span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">id</span>; <span style="color: #6434A3;">double</span> <span style="color: #BA36A5;">price</span>; <span style="color: #707183;">}</span>;
+<span style="color: #4f97d7; font-weight: bold; font-style: italic;">class</span> <span style="color: #6434A3;">InheritanceOrderBook</span> : <span style="color: #4f97d7; font-weight: bold; font-style: italic;">public</span> <span style="color: #D0372D;">std</span>::<span style="color: #6434A3;">vector</span><span style="color: #707183;">&lt;</span><span style="color: #6434A3;">Order</span><span style="color: #707183;">&gt;</span> <span style="color: #707183;">{</span> <span style="color: #707183;">}</span>;
+<span style="color: #4f97d7; font-weight: bold; font-style: italic;">class</span> <span style="color: #6434A3;">CompositionOrderBook</span> <span style="color: #707183;">{</span>
+  <span style="color: #D0372D;">std</span>::<span style="color: #6434A3;">vector</span><span style="color: #7388D6;">&lt;</span><span style="color: #6434A3;">Order</span><span style="color: #7388D6;">&gt;</span> <span style="color: #BA36A5;">orders_</span>;
+<span style="color: #4f97d7; font-weight: bold; font-style: italic;">public</span>:
+  <span style="color: #4f97d7; font-weight: bold; font-style: italic;">auto</span> <span style="color: #006699;">size</span><span style="color: #7388D6;">()</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">const</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">noexcept</span> <span style="color: #7388D6;">{</span>
+    <span style="color: #4f97d7; font-weight: bold; font-style: italic;">return</span> orders_.size<span style="color: #909183;">()</span>;
+  <span style="color: #7388D6;">}</span>
+<span style="color: #707183;">}</span>;
+<span style="color: #6434A3;">int</span> <span style="color: #006699;">main</span><span style="color: #707183;">()</span> <span style="color: #707183;">{</span>
+  <span style="color: #6434A3;">InheritanceOrderBook</span> <span style="color: #BA36A5;">i_book</span>;
+  <span style="color: #6434A3;">CompositionOrderBook</span> <span style="color: #BA36A5;">c_book</span>;
+  printf<span style="color: #7388D6;">(</span>&#8220;<span style="color: #D0372D;">InheritanceOrderBook</span>::size<span style="color: #909183;">()</span>:%lu Composi
+       tionOrderBook:%lu\n&#8221;, i_book.size<span style="color: #909183;">()</span>, c_book.size<span style="color: #909183;">()</span><span style="color: #7388D6;">)</span>;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+
+<p>
+C++ <b>RTTI</b> adds a bunch of extra metadata to each class object to extract and use additional information at runtime. This makes all instances of these objects inefficient, and it is best to turn off RTTI support at the compiler level for low-latency applications. If the developer needs to attach specific metadata to specific classes or objects, it is best to customize the implementation itself instead of adding overhead to the entire application. <b>dynamic<sub>cast</sub></b>, as we discussed before, usually uses the RTTI information to perform the cast and should also be avoided.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge288e2b" class="outline-3">
+<h3 id="orge288e2b"><span class="section-number-3">4.12.</span> Using compile-time polymorphism</h3>
+<div class="outline-text-3" id="text-4-12">
+<p>
+Let us discuss an alternative to using runtime polymorphism, which is to use templates to achieve compile-time polymorphism. Templates are similar to macros, meaning they are expanded before compilation, and because of this, not only is the runtime overhead eliminated but it also unlocks additional compiler optimization opportunities. Templates make the compiler machine code super-efficient but they come at the cost of additional source code complexity, as well as larger executable sizes.
+</p>
+
+<p>
+The <b>Curiously Recurring Template Pattern</b> (<b>CRTP</b>) facilitates compile-time polymorphism. Note that the syntax here is more complicated than using runtime polymorphism using <b>virtual</b> functions and the base class and derived class relationships are similar but slightly different using the <i>CRTP</i>. A simple example of converting runtime polymorphism into compile-time polymorphism is shown here. In both cases, the derived classes, <b>SpecificRuntimeExample</b> and <b>SpecificCRTPExample</b>, override the <b>placeOrder()</b> method. The code discussed in this sub-section is in the <b>crtp.cpp</b> file in the GitHub repo for this book under the <b>Chapter3</b> directory.
+</p>
+</div>
+
+<div id="outline-container-org9d25486" class="outline-4">
+<h4 id="org9d25486"><span class="section-number-4">4.12.1.</span> Runtime polymorphism using virtual functions</h4>
+<div class="outline-text-4" id="text-4-12-1">
+<p>
+Here, we have an example of implementing runtime polymorphism where <b>SpecificRuntimeExample</b> derives <b>RuntimeExample</b> and overrides the <b>placeOrder()</b> method:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #808080;">#include</span> <span style="color: #707183;">&lt;</span><span style="color: #008000;">cstdio</span><span style="color: #707183;">&gt;</span>
+<span style="color: #4f97d7; font-weight: bold; font-style: italic;">class</span> <span style="color: #6434A3;">RuntimeExample</span> <span style="color: #707183;">{</span>
+<span style="color: #4f97d7; font-weight: bold; font-style: italic;">public</span>:
+  <span style="color: #4f97d7; font-weight: bold; font-style: italic;">virtual</span> <span style="color: #6434A3;">void</span> <span style="color: #006699;">placeOrder</span><span style="color: #7388D6;">()</span> <span style="color: #7388D6;">{</span>
+    printf<span style="color: #909183;">(</span>&#8220;<span style="color: #D0372D;">RuntimeExample</span>::placeOrder<span style="color: #709870;">()</span>\n&#8221;<span style="color: #909183;">)</span>;
+  <span style="color: #7388D6;">}</span>
+<span style="color: #707183;">}</span>;
+<span style="color: #4f97d7; font-weight: bold; font-style: italic;">class</span> <span style="color: #6434A3;">SpecificRuntimeExample</span> : <span style="color: #4f97d7; font-weight: bold; font-style: italic;">public</span> <span style="color: #6434A3;">RuntimeExample</span> <span style="color: #707183;">{</span>
+<span style="color: #4f97d7; font-weight: bold; font-style: italic;">public</span>:
+  <span style="color: #6434A3;">void</span> <span style="color: #006699;">placeOrder</span><span style="color: #7388D6;">()</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">override</span> <span style="color: #7388D6;">{</span>
+    printf<span style="color: #909183;">(</span>&#8220;<span style="color: #D0372D;">SpecificRuntimeExample</span>::placeOrder<span style="color: #709870;">()</span>\n&#8221;<span style="color: #909183;">)</span>;
+  <span style="color: #7388D6;">}</span>
+<span style="color: #707183;">}</span>;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org003ad8b" class="outline-4">
+<h4 id="org003ad8b"><span class="section-number-4">4.12.2.</span> Compile-time polymorphism using the CRTP</h4>
+<div class="outline-text-4" id="text-4-12-2">
+<p>
+Now we implement similar functionality as discussed in the previous section, but instead of using runtime polymorphism, we use compile-time polymorphism. Here, we use the CRTP pattern and <b>SpecificCRTPExample</b> specializes/implements the <b>CRTPExample</b> interface and has a different implementation of <b>placeOrder()</b> via <b>actualPlaceOrder()</b>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #4f97d7; font-weight: bold; font-style: italic;">template</span> <span style="color: #707183;">&lt;</span><span style="color: #4f97d7; font-weight: bold; font-style: italic;">typename</span> <span style="color: #6434A3;">actual_type</span><span style="color: #707183;">&gt;</span>
+<span style="color: #4f97d7; font-weight: bold; font-style: italic;">class</span> <span style="color: #6434A3;">CRTPExample</span> <span style="color: #707183;">{</span>
+<span style="color: #4f97d7; font-weight: bold; font-style: italic;">public</span>:
+  <span style="color: #6434A3;">void</span> <span style="color: #006699;">placeOrder</span><span style="color: #7388D6;">()</span> <span style="color: #7388D6;">{</span>
+    <span style="color: #4f97d7; font-weight: bold; font-style: italic;">static_cast</span><span style="color: #909183;">&lt;</span><span style="color: #6434A3;">actual_type</span>*<span style="color: #909183;">&gt;(</span><span style="color: #4f97d7; font-weight: bold; font-style: italic;">this</span><span style="color: #909183;">)</span>-&gt;actualPlaceOrder<span style="color: #909183;">()</span>;
+  <span style="color: #7388D6;">}</span>
+  <span style="color: #6434A3;">void</span> <span style="color: #006699;">actualPlaceOrder</span><span style="color: #7388D6;">()</span> <span style="color: #7388D6;">{</span>
+    printf<span style="color: #909183;">(</span>&#8220;<span style="color: #D0372D;">CRTPExample</span>::actualPlaceOrder<span style="color: #709870;">()</span>\n&#8221;<span style="color: #909183;">)</span>;
+  <span style="color: #7388D6;">}</span>
+<span style="color: #707183;">}</span>;
+<span style="color: #4f97d7; font-weight: bold; font-style: italic;">class</span> <span style="color: #6434A3;">SpecificCRTPExample</span> : <span style="color: #4f97d7; font-weight: bold; font-style: italic;">public</span> <span style="color: #6434A3;">CRTPExample</span><span style="color: #707183;">&lt;</span><span style="color: #6434A3;">Specific</span>
+     <span style="color: #6434A3;">CRTPExample</span><span style="color: #707183;">&gt;</span> <span style="color: #707183;">{</span>
+<span style="color: #4f97d7; font-weight: bold; font-style: italic;">public</span>:
+  <span style="color: #6434A3;">void</span> <span style="color: #006699;">actualPlaceOrder</span><span style="color: #7388D6;">()</span> <span style="color: #7388D6;">{</span>
+    printf<span style="color: #909183;">(</span>&#8220;<span style="color: #D0372D;">SpecificCRTPExample</span>::actualPlaceOrder<span style="color: #709870;">()</span>\n&#8221;<span style="color: #909183;">)</span>;
+  <span style="color: #7388D6;">}</span>
+<span style="color: #707183;">}</span>;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdfd9983" class="outline-4">
+<h4 id="orgdfd9983"><span class="section-number-4">4.12.3.</span> Invoking polymorphic methods in the two cases</h4>
+<div class="outline-text-4" id="text-4-12-3">
+<p>
+Finally, in the following snippet presented, we show how we would create <b>SpecificRuntimeExample</b> and <b>SpecificCRTPExample</b> objects. We then invoke runtime and compile-time polymorphism respectively using the <b>placeOrder()</b> method:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #6434A3;">int</span> <span style="color: #006699;">main</span><span style="color: #707183;">(</span><span style="color: #6434A3;">int</span>, <span style="color: #6434A3;">char</span> **<span style="color: #707183;">)</span> <span style="color: #707183;">{</span>
+  <span style="color: #6434A3;">RuntimeExample</span>* <span style="color: #BA36A5;">runtime_example</span> = <span style="color: #4f97d7; font-weight: bold; font-style: italic;">new</span> <span style="color: #6434A3;">SpecificRuntimeEx</span>
+       ample<span style="color: #7388D6;">()</span>;
+  runtime_example-&gt;placeOrder<span style="color: #7388D6;">()</span>;
+  <span style="color: #6434A3;">CRTPExample</span><span style="color: #7388D6;">&lt;</span>SpecificCRTPExample<span style="color: #7388D6;">&gt;</span> <span style="color: #BA36A5;">crtp_example</span>;
+  crtp_example.placeOrder<span style="color: #7388D6;">()</span>;
+  <span style="color: #4f97d7; font-weight: bold; font-style: italic;">return</span> 0;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+
+<p>
+Running this yields the following output, the first line using runtime polymorphism and the second line using compile time polymorphism:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #D0372D;">SpecificRuntimeExample</span>::placeOrder<span style="color: #707183;">()</span>
+<span style="color: #D0372D;">SpecificCRTPExample</span>::actualPlaceOrder<span style="color: #707183;">()</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf310e69" class="outline-3">
+<h3 id="orgf310e69"><span class="section-number-3">4.13.</span> Using additional compile-time processing</h3>
+<div class="outline-text-3" id="text-4-13">
+<p>
+<b>Template metaprogramming</b> is a more general term that means writing code that itself yields more code. The benefit here is also to move computations from runtime to compile time and maximize compiler optimization opportunities and runtime performance. It is possible to write almost anything with template metaprogramming, but it can get extremely complicated and difficult to understand, maintain, and debug, lead to very long compilation times, and increase the binary size to a very large size.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0479f88" class="outline-3">
+<h3 id="org0479f88"><span class="section-number-3">4.14.</span> Handling exceptions</h3>
+<div class="outline-text-3" id="text-4-14">
+<p>
+The C++ exception handling system is designed to detect unexpected error conditions at runtime and either gracefully recover or shut down from that point. When it comes to low-latency applications, it is important to evaluate the use of exception handling since while it is true that exception handling incurs the largest latencies during these rare error cases, there can still be some overhead even when exceptions are not raised. There is some bookkeeping overhead related to the logic used to recover gracefully when exceptions are raised under various scenarios. With nested functions, exceptions need to be propagated all the way up to the top-most caller function and each stack frame needs to be cleaned up. This is known as <b>stack unwinding</b> and requires the exception handler to track all the information it needs to walk backward during an exception.
+</p>
+
+<p>
+For low-latency applications, exceptions are either disabled per function using the <b>throw()</b> or <b>noexcept</b> specifications or disabled across the entire program using compiler flags. This allows the compiler to assume that some or all methods will not throw an exception and hence the processor does not have to worry about saving and tracking recovery information. Note that using <b>noexcept</b> or disabling the C++ exception handling system is not without some disadvantages. For one, usually, the C++ exception handling system does not typically add a lot of extra overhead unless an exception is thrown, so this decision must be made with careful consideration. Another point is that if a method marked as <b>noexcept</b> throws an exception for some reason, the exception can no longer be propagated up the stack and instead the program is terminated right there. What this means is that disabling the C++ exception handling system either partially or fully makes handling failures and exceptions harder and completely the developer's responsibility. Usually, what this means is that the developer will still need to make sure that exceptional error conditions are not encountered or handled elsewhere, but the point is that now the developer has explicit control over this and can move it out of the critical hot path. For this reason, it is common that during the development and testing phases, the C++ exception handling system is not disabled, but only during the very last optimization steps do we consider removing exception handling.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgdac37ae" class="outline-3">
+<h3 id="orgdac37ae"><span class="section-number-3">4.15.</span> Accessing cache and memory</h3>
+<div class="outline-text-3" id="text-4-15">
+<p>
+We have frequently referred to cache performance while discussing different uses of C++ features since accessing the main memory is significantly slower than the clock cycles used to execute CPU instructions or access registers or cache storage. Here are some general points to keep in mind when trying to optimize cache and memory access.
+</p>
+</div>
+
+<div id="outline-container-orgeeea9c6" class="outline-4">
+<h4 id="orgeeea9c6"><span class="section-number-4">4.15.1.</span> Aligning data</h4>
+<div class="outline-text-4" id="text-4-15-1">
+<p>
+Variables that are aligned, in that they are placed at memory locations that are multiples of the size of the variable, are accessed most efficiently. The term <b>word size</b> for processors describes the number of bits read by and processed by processors, which for modern processors is either 32-bits or 64-bits. This is because the processor can read a variable from memory up to the word size in a single read operation. If the variable is aligned in memory, then the processor does not have to do any extra work to get it into the required register to be processed.
+</p>
+
+<p>
+For these reasons, aligned variables are more efficient to handle, and the compiler will take care of automatically aligning variables. This includes adding padding in between member variables in a class or a struct to keep those variables aligned. When adding member variables to structures where we expect to have a lot of objects, it is important to consider the extra padding added carefully because the size of the struct will be larger than expected. The extra space in each instance of this struct's or class's objects means that they can have worse cache performance if there are a lot of them. The recommended approach here would be to reorder the members of the struct so that minimal extra padding is added to keep the members aligned.
+</p>
+
+<p>
+We will see an example that orders the same members inside a structure in three different ways &#x2013; one where there is a lot of additional padding added to keep each variable aligned, another where the developer reorders the member variables to minimize space waste due to compiler-added padding, and, finally, where we use the <b>pack()</b> pragma to eliminate all padding. This code is available in the <b>Chapter3/alignment.cpp</b> file in the GitHub repository for this book:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #808080;">#include</span> <span style="color: #707183;">&lt;</span><span style="color: #008000;">cstdio</span><span style="color: #707183;">&gt;</span>
+<span style="color: #808080;">#include</span> <span style="color: #707183;">&lt;</span><span style="color: #008000;">cstdint</span><span style="color: #707183;">&gt;</span>
+<span style="color: #808080;">#include</span> <span style="color: #707183;">&lt;</span><span style="color: #008000;">cstddef</span><span style="color: #707183;">&gt;</span>
+<span style="color: #4f97d7; font-weight: bold; font-style: italic;">struct</span> <span style="color: #6434A3;">PoorlyAlignedData</span> <span style="color: #707183;">{</span>
+  <span style="color: #6434A3;">char</span> <span style="color: #BA36A5;">c</span>;
+  <span style="color: #6434A3;">uint16_t</span> <span style="color: #BA36A5;">u</span>;
+  <span style="color: #6434A3;">double</span> <span style="color: #BA36A5;">d</span>;
+  <span style="color: #6434A3;">int16_t</span> <span style="color: #BA36A5;">i</span>;
+<span style="color: #707183;">}</span>;
+<span style="color: #4f97d7; font-weight: bold; font-style: italic;">struct</span> <span style="color: #6434A3;">WellAlignedData</span> <span style="color: #707183;">{</span>
+  <span style="color: #6434A3;">double</span> <span style="color: #BA36A5;">d</span>;
+  <span style="color: #6434A3;">uint16_t</span> <span style="color: #BA36A5;">u</span>;
+  <span style="color: #6434A3;">int16_t</span> <span style="color: #BA36A5;">i</span>;
+  <span style="color: #6434A3;">char</span> <span style="color: #BA36A5;">c</span>;
+<span style="color: #707183;">}</span>;
+<span style="color: #808080;">#pragma</span> pack<span style="color: #707183;">(</span>push, 1<span style="color: #707183;">)</span>
+<span style="color: #4f97d7; font-weight: bold; font-style: italic;">struct</span> <span style="color: #6434A3;">PackedData</span> <span style="color: #707183;">{</span>
+  <span style="color: #6434A3;">double</span> <span style="color: #BA36A5;">d</span>;
+  <span style="color: #6434A3;">uint16_t</span> <span style="color: #BA36A5;">u</span>;
+  <span style="color: #6434A3;">int16_t</span> <span style="color: #BA36A5;">i</span>;
+  <span style="color: #6434A3;">char</span> <span style="color: #BA36A5;">c</span>;
+<span style="color: #707183;">}</span>;
+<span style="color: #808080;">#pragma</span> pack<span style="color: #707183;">(</span>pop<span style="color: #707183;">)</span>
+<span style="color: #6434A3;">int</span> <span style="color: #006699;">main</span><span style="color: #707183;">()</span> <span style="color: #707183;">{</span>
+  printf<span style="color: #7388D6;">(</span>&#8220;PoorlyAlignedData c:%lu u:%lu d:%lu i:%lu
+       size:%lu\n&#8221;,
+         offsetof<span style="color: #909183;">(</span><span style="color: #4f97d7; font-weight: bold; font-style: italic;">struct</span> <span style="color: #6434A3;">PoorlyAlignedData</span>,c<span style="color: #909183;">)</span>, offsetof
+              <span style="color: #909183;">(</span><span style="color: #4f97d7; font-weight: bold; font-style: italic;">struct</span> <span style="color: #6434A3;">PoorlyAlignedData</span>,u<span style="color: #909183;">)</span>, offsetof<span style="color: #909183;">(</span><span style="color: #4f97d7; font-weight: bold; font-style: italic;">struct</span>
+              <span style="color: #6434A3;">PoorlyAlignedData</span>,d<span style="color: #909183;">)</span>, offsetof<span style="color: #909183;">(</span><span style="color: #4f97d7; font-weight: bold; font-style: italic;">struct</span> <span style="color: #6434A3;">PoorlyA</span>
+              <span style="color: #BA36A5;">lignedData</span>,i<span style="color: #909183;">)</span>, <span style="color: #4f97d7; font-weight: bold; font-style: italic;">sizeof</span><span style="color: #909183;">(</span>PoorlyAlignedData<span style="color: #909183;">)</span><span style="color: #7388D6;">)</span>;
+  printf<span style="color: #7388D6;">(</span>&#8220;WellAlignedData d:%lu u:%lu i:%lu c:%lu
+       size:%lu\n&#8221;,
+         offsetof<span style="color: #909183;">(</span><span style="color: #4f97d7; font-weight: bold; font-style: italic;">struct</span> <span style="color: #6434A3;">WellAlignedData</span>,d<span style="color: #909183;">)</span>, offsetof
+              <span style="color: #909183;">(</span><span style="color: #4f97d7; font-weight: bold; font-style: italic;">struct</span> <span style="color: #6434A3;">WellAlignedData</span>,u<span style="color: #909183;">)</span>, offsetof<span style="color: #909183;">(</span><span style="color: #4f97d7; font-weight: bold; font-style: italic;">struct</span>
+              <span style="color: #6434A3;">WellAlignedData</span>,i<span style="color: #909183;">)</span>, offsetof<span style="color: #909183;">(</span><span style="color: #4f97d7; font-weight: bold; font-style: italic;">struct</span> <span style="color: #6434A3;">WellAligned</span>
+              <span style="color: #BA36A5;">Data</span>,c<span style="color: #909183;">)</span>, <span style="color: #4f97d7; font-weight: bold; font-style: italic;">sizeof</span><span style="color: #909183;">(</span>WellAlignedData<span style="color: #909183;">)</span><span style="color: #7388D6;">)</span>;
+  printf<span style="color: #7388D6;">(</span>&#8220;PackedData d:%lu u:%lu i:%lu c:%lu size:%lu\n&#8221;,
+         offsetof<span style="color: #909183;">(</span><span style="color: #4f97d7; font-weight: bold; font-style: italic;">struct</span> <span style="color: #6434A3;">PackedData</span>,d<span style="color: #909183;">)</span>, offsetof<span style="color: #909183;">(</span><span style="color: #4f97d7; font-weight: bold; font-style: italic;">struct</span>
+              <span style="color: #6434A3;">PackedData</span>,u<span style="color: #909183;">)</span>, offsetof<span style="color: #909183;">(</span><span style="color: #4f97d7; font-weight: bold; font-style: italic;">struct</span> <span style="color: #6434A3;">PackedData</span>,i<span style="color: #909183;">)</span>,
+              offsetof<span style="color: #909183;">(</span><span style="color: #4f97d7; font-weight: bold; font-style: italic;">struct</span> <span style="color: #6434A3;">PackedData</span>,c<span style="color: #909183;">)</span>, <span style="color: #4f97d7; font-weight: bold; font-style: italic;">sizeof</span>
+              <span style="color: #909183;">(</span>PackedData<span style="color: #909183;">)</span><span style="color: #7388D6;">)</span>;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+
+<p>
+This code outputs the following on my system, displaying the offsets of the different data members in each of the three designs of the same structure. Note that the first version has an extra 11 bytes of padding, the second one only has an extra 3 bytes of padding due to the reordering, and the last version has no extra padding:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp">PoorlyAlignedData <span style="color: #6434A3;">c</span>:0 u:2 d:8 i:16 size:24
+WellAlignedData d:0 u:8 i:10 c:12 size:16
+PackedData d:0 u:8 i:10 c:12 size:13
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf81a2eb" class="outline-4">
+<h4 id="orgf81a2eb"><span class="section-number-4">4.15.2.</span> Accessing data</h4>
+<div class="outline-text-4" id="text-4-15-2">
+<p>
+Cache-friendly data access (read and/or write) is when the data is accessed sequentially or somewhat sequentially. If the data is accessed backward, it is less efficient than this, and cache performance is worse if the data is accessed randomly. This is something to consider, especially when accessing multi-dimensional arrays of objects and/or objects residing in a container with a non-trivial underlying storage of the objects.
+</p>
+
+<p>
+For instance, accessing elements in an array is significantly more efficient than accessing elements in a linked list, tree, or hash-map container because of the contiguous memory storage versus random memory storage locations. From the perspective of algorithmic complexity, searching linearly in an array is less efficient than using a hash map since the array search has <b>O(n)</b> and the hash map has <b>O(1)</b> theoretical algorithmic complexity. However, if the number of elements is small enough, then using the array still yields better performance, a large reason being due to cache performance and algorithm overhead.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge7638e1" class="outline-4">
+<h4 id="orge7638e1"><span class="section-number-4">4.15.3.</span> Using large data structures</h4>
+<div class="outline-text-4" id="text-4-15-3">
+<p>
+When dealing with large multi-dimensional matrix datasets, for instance, with linear algebra operations, cache access performance dominates the performance of the operation. Often, the actual algorithm implementation for matrix operations is different from that used in classic texts to reorder the matrix access operations for cache performance. The best approach here is to measure the performance of different algorithms and access patterns and find the one that performs best under different matrix dimensions, cache contention conditions, and so on.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6b93b27" class="outline-4">
+<h4 id="org6b93b27"><span class="section-number-4">4.15.4.</span> Grouping variables together</h4>
+<div class="outline-text-4" id="text-4-15-4">
+<p>
+When designing classes and method or non-method functions, grouping variables that are accessed together greatly improves cache performance by reducing the number of cache misses. We discussed that preferring local variables over global, static, and dynamically allocated memory leads to better cache performance.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3188a35" class="outline-4">
+<h4 id="org3188a35"><span class="section-number-4">4.15.5.</span> Grouping functions together</h4>
+<div class="outline-text-4" id="text-4-15-5">
+<p>
+Grouping class member functions and non-member functions together so that functions that are used together are close together in memory also leads to better cache performance. This is because functions are placed in memory addresses depending on where they are in the developer's source code and functions next to each other get assigned addresses close to each other.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgccdf449" class="outline-3">
+<h3 id="orgccdf449"><span class="section-number-3">4.16.</span> Dynamically allocating memory</h3>
+<div class="outline-text-3" id="text-4-16">
+<p>
+Dynamically allocated memory has several good use cases, specifically when the size of containers is not known at compile time and when they can grow or shrink in size during the application instance's life cycle. Dynamically allocated memory is also important for objects that are very large and take up a lot of stack space. Dynamically allocated memory can have a place in low-latency applications if allocation and deallocation are not done on the critical path and an allocated block of memory is used so that the cache performance is not hurt.
+</p>
+
+<p>
+A disadvantage of dynamically allocated memory is that the process of allocating and deallocating memory blocks is awfully slow. The repeated allocation and deallocation of memory blocks of varied sizes fragments the heap, that is, it creates free memory blocks of different sizes interspersed with allocated memory blocks.
+</p>
+
+<p>
+A fragmented heap makes the allocation and deallocation process even slower. Allocated memory blocks might not be optimally aligned unless the developer is careful about it. Dynamically allocated memory accessed through pointers causes pointer aliasing and prevents compiler optimizations, as we have seen before. There are other disadvantages of dynamically allocated memory, but these are the biggest ones for low-latency applications. Hence, it is best to avoid dynamically allocated memory completely when it comes to low-latency applications, or at the very least use it carefully and sparingly.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgeb729bc" class="outline-3">
+<h3 id="orgeb729bc"><span class="section-number-3">4.17.</span> Multi-threading</h3>
+<div class="outline-text-3" id="text-4-17">
+<p>
+If low-latency applications use multi-threading, the threads and the interactions between these threads should be designed carefully. Starting and stopping threads takes time, so it is best to avoid launching new threads when they are needed and instead use a thread pool of worker threads. Task switching or context switching is when one thread is paused or blocked, and another thread starts executing in its place. Context switching is very expensive since it requires the OS to save the state of the current thread, load the state of the next thread, start the processing, and so on, and is usually accompanied by memory reads and writes, cache misses, instruction pipeline stalls, and so on.
+</p>
+
+<p>
+Synchronization using locks and mutexes between threads is also expensive and involves additional checks around concurrent access and context-switching overhead. When multiple threads access shared resources, they need to use the <b>volatile</b> keyword and that also prevents several compiler optimizations. Additionally, different threads can compete for the same cache lines and invalidate each other's caches and this contention leads to terrible cache performance. Each thread gets its own stack, so it's best to keep the shared data to a minimum and allocate variables locally on the thread's stack.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org53d161a" class="outline-2">
+<h2 id="org53d161a"><span class="section-number-2">5.</span> Maximizing C++ compiler optimization parameters</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+In this last section, we will understand how advanced and amazing modern C++ compilers are at optimizing the C++ code that the developers write. We will understand how compilers optimize the C++ code during the compilation, linking, and optimization stages to generate the most efficient machine code possible. We will understand how compilers optimize high-level C++ code and when they fail to do the best job. We will follow that up with a discussion on what the application developer can do to aid the compilers in their optimization task. Finally, we will look at different options available in modern C++ compilers by looking specifically at the <b>GNU compiler</b> (<b>GCC</b>). Let us start by understanding how compilers optimize our C++ program.
+</p>
+</div>
+
+<div id="outline-container-orgfda9436" class="outline-3">
+<h3 id="orgfda9436"><span class="section-number-3">5.1.</span> Understanding how compilers optimize</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+In this sub-section, we will understand the different compiler optimization techniques that the compiler employs during its many passes over the high-level C++ code. The compiler typically first performs local optimizations and then tries to globally optimize these smaller code sections. It does so over several passes through the translated machine code during the pre-processing, compilation, linking, and optimization stages. Broadly, most compiler optimization techniques have some common themes, some of which overlap and some of which conflict with each other, which we will look at next.
+</p>
+</div>
+
+<div id="outline-container-org0b5ae91" class="outline-4">
+<h4 id="org0b5ae91"><span class="section-number-4">5.1.1.</span> Optimizing the common cases</h4>
+<div class="outline-text-4" id="text-5-1-1">
+<p>
+This concept applies to software development too and helps the compiler optimize the code better. If the compiler can understand which code paths the program execution will spend most of its time in, it can optimize the common path to be faster even if it slows down the paths that are rarely taken. This results in better performance overall, but typically this is harder for the compiler to achieve at compilation time since it is not obvious which code paths are expected to be more likely unless the developer adds directives to specify this. We will discuss the hints that a developer can provide to the compiler to help specify which code paths are expected to be more likely during runtime.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgdd73da5" class="outline-4">
+<h4 id="orgdd73da5"><span class="section-number-4">5.1.2.</span> Minimizing branching</h4>
+<div class="outline-text-4" id="text-5-1-2">
+<p>
+Modern processors typically prefetch data and instructions before they are required so that the processors can execute instructions as quickly as possible. However, when there are jumps and branches (conditional and unconditional), the processor cannot know which instructions and data will be needed ahead of time with 100% certainty. What this means is that sometimes the processor incorrectly predicts the branch taken and thus the instructions and data prefetched are incorrect. When this happens, there is an extra penalty incurred since now the processor must remove the instructions and data that were fetched incorrectly and replace them with the correct instructions and data and then execute them after that. Techniques such as loop unrolling, inlining, and branch prediction hints help reduce branching and the misprediction of branching and improve performance. We will explore these concepts in more detail later in this section.
+</p>
+
+<p>
+There are several cases in which a developer can refactor code in such a way that they avoid branching and achieve the same behavior. Sometimes, these optimization opportunities are only available to the developer, who understands the code and behavior at a deeper level than the compiler. A very simple example of how to convert a code block that uses branching and transform it to avoid branching is presented next. Here we have an enumeration to track side for an execution and we track the last bought/sold quantity, as well as updating the position in two different ways. The first way uses a branch on the <b>fill<sub>side</sub></b> variable and the second method avoids that branching by assuming that the <b>fill<sub>side</sub></b> variable can only have <b>BUY*/*SELL</b> values and can be cast to integers to be indexed into an array. This code can be found in the <b>Chapter3/branch.cpp</b> file:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #808080;">#include</span> <span style="color: #707183;">&lt;</span><span style="color: #008000;">cstdio</span><span style="color: #707183;">&gt;</span>
+<span style="color: #808080;">#include</span> <span style="color: #707183;">&lt;</span><span style="color: #008000;">cstdint</span><span style="color: #707183;">&gt;</span>
+<span style="color: #808080;">#include</span> <span style="color: #707183;">&lt;</span><span style="color: #008000;">cstdlib</span><span style="color: #707183;">&gt;</span>
+<span style="color: #4f97d7; font-weight: bold; font-style: italic;">enum</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">class</span> <span style="color: #6434A3;">Side</span> : <span style="color: #6434A3;">int16_t</span> <span style="color: #707183;">{</span> <span style="color: #BA36A5;">BUY</span> = 1, <span style="color: #BA36A5;">SELL</span> = -1 <span style="color: #707183;">}</span>;
+<span style="color: #6434A3;">int</span> <span style="color: #006699;">main</span><span style="color: #707183;">()</span> <span style="color: #707183;">{</span>
+  <span style="color: #4f97d7; font-weight: bold; font-style: italic;">const</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">auto</span> <span style="color: #BA36A5;">fill_side</span> = <span style="color: #7388D6;">(</span>rand<span style="color: #909183;">()</span> % 2 ? <span style="color: #D0372D;">Side</span>::BUY : <span style="color: #D0372D;">Side</span>
+       ::SELL<span style="color: #7388D6;">)</span>;
+  <span style="color: #4f97d7; font-weight: bold; font-style: italic;">const</span> <span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">fill_qty</span> = 10;
+  printf<span style="color: #7388D6;">(</span>&#8220;fill_side:%s fill_qty:%d.\n&#8221;, <span style="color: #909183;">(</span>fill_side == <span style="color: #D0372D;">Side</span>
+       ::BUY ? &#8220;BUY&#8221; : <span style="color: #709870;">(</span>fill_side == <span style="color: #D0372D;">Side</span>::SELL ? &#8220;SELL&#8221; :
+         &#8220;INVALID&#8221;<span style="color: #709870;">)</span><span style="color: #909183;">)</span>, fill_qty<span style="color: #7388D6;">)</span>;
+  <span style="color: #7388D6;">{</span> <span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">with branching</span>
+    <span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">last_buy_qty</span> = 0, <span style="color: #BA36A5;">last_sell_qty</span> = 0, <span style="color: #BA36A5;">position</span> = 0;
+    <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span> <span style="color: #909183;">(</span>fill_side == <span style="color: #D0372D;">Side</span>::BUY<span style="color: #909183;">)</span> <span style="color: #909183;">{</span>
+      position += fill_qty; last_buy_qty = fill_qty;
+    <span style="color: #909183;">}</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">else</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span> <span style="color: #909183;">(</span>fill_side == <span style="color: #D0372D;">Side</span>::SELL<span style="color: #909183;">)</span> <span style="color: #909183;">{</span>
+      position -= fill_qty; last_sell_qty = fill_qty; <span style="color: #909183;">}</span>
+    printf<span style="color: #909183;">(</span>&#8220;With branching - position:%d last-buy:%d last-
+         sell:%d.\n&#8221;, position, last_buy_qty,
+           last_sell_qty<span style="color: #909183;">)</span>;
+  <span style="color: #7388D6;">}</span>
+  <span style="color: #7388D6;">{</span> <span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">without branching</span>
+    <span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">last_qty</span><span style="color: #909183;">[</span>3<span style="color: #909183;">]</span> = <span style="color: #909183;">{</span>0, 0, 0<span style="color: #909183;">}</span>, <span style="color: #BA36A5;">position</span> = 0;
+    <span style="color: #4f97d7; font-weight: bold; font-style: italic;">auto</span> <span style="color: #BA36A5;">sideToInt</span> = <span style="color: #909183;">[](</span><span style="color: #6434A3;">Side</span> <span style="color: #BA36A5;">side</span><span style="color: #909183;">)</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">noexcept</span> <span style="color: #909183;">{</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">return</span>
+         <span style="color: #4f97d7; font-weight: bold; font-style: italic;">static_cast</span><span style="color: #709870;">&lt;</span><span style="color: #6434A3;">int16_t</span><span style="color: #709870;">&gt;(</span>side<span style="color: #709870;">)</span>; <span style="color: #909183;">}</span>;
+    <span style="color: #4f97d7; font-weight: bold; font-style: italic;">const</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">auto</span> <span style="color: #BA36A5;">int_fill_side</span> = sideToInt<span style="color: #909183;">(</span>fill_side<span style="color: #909183;">)</span>;
+    position += int_fill_side * fill_qty;
+    last_qty<span style="color: #909183;">[</span>int_fill_side + 1<span style="color: #909183;">]</span> = fill_qty;
+    printf<span style="color: #909183;">(</span>&#8220;Without branching - position:%d last-buy:%d
+         last-sell:%d.\n&#8221;, position, last_qty<span style="color: #709870;">[</span>sideToInt
+           <span style="color: #907373;">(</span><span style="color: #D0372D;">Side</span>::BUY<span style="color: #907373;">)</span> + 1<span style="color: #709870;">]</span>, last_qty<span style="color: #709870;">[</span>side
+             ToInt<span style="color: #907373;">(</span><span style="color: #D0372D;">Side</span>::SELL<span style="color: #907373;">)</span>+
+             1<span style="color: #709870;">]</span><span style="color: #909183;">)</span>;
+  <span style="color: #7388D6;">}</span>
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+
+<p>
+And both the branching and branchless implementations compute the same values:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #D0372D;">fill_side</span>:BUY <span style="color: #6434A3;">fill_qty</span>:10.
+With branching - position:10 last-buy:10 last-sell:0.
+Without branching - position:10 last-buy:10 last-sell:0.
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org82cff87" class="outline-4">
+<h4 id="org82cff87"><span class="section-number-4">5.1.3.</span> Reordering and scheduling instructions</h4>
+<div class="outline-text-4" id="text-5-1-3">
+<p>
+The compiler can take advantage of advanced processors by re-ordering instructions in such a way that parallel processing can happen at the instruction, memory, and thread levels. The compiler can detect dependencies between code blocks and re-order them so that the program still works correctly but executes faster by executing instructions and processing data in parallel at the processor level. Modern processors can reorder instructions even without the compiler doing so, but it helps if the compiler can make it easier for the processors to do so as well. The main objective here is to prevent stalls and bubbles in modern processors, which have multiple pipelined processors, by choosing and ordering instructions in such a way as to preserve the original logical flow.
+</p>
+
+<p>
+A simple example of how an expression can be reordered to take advantage of parallelism is shown here. Note that this is somewhat hypothetical since the actual implementation of this will vary greatly depending on the processor and the compiler:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp">x = a + b + c + d + e + f;
+</pre>
+</div>
+
+<p>
+As it is written, this expression has a data dependency and would be executed sequentially, roughly as follows, and cost 5 clock cycles:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp">x = a + b;
+x = x + c;
+x = x + d;
+x = x +e;
+x = x + f;
+</pre>
+</div>
+
+<p>
+It can be re-ordered into the following instructions, and assuming the advanced processor can perform two additions at a time, can be reduced to three clock cycles. This is because two operations such as <b>x = a + b;</b> and <b>p = c +d;</b> can be performed in parallel since they are independent of each other:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp">x = a + b; p = c + d;
+q = e + f; x = x + p;
+x = x + q;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org614b027" class="outline-4">
+<h4 id="org614b027"><span class="section-number-4">5.1.4.</span> Using special instructions depending on the architecture</h4>
+<div class="outline-text-4" id="text-5-1-4">
+<p>
+During the compilation process, the compiler can choose which CPU instructions to use to implement the high-level program logic. When the compiler generates an executable for a specific architecture, it can use special instructions that the architecture supports. This means there is an opportunity to generate even more efficient instruction sequences, which leverage the special instructions that the architecture provides. We will look at how to specify this in the <i>Learning about compiler optimization</i> <i>flags</i> section.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6623497" class="outline-4">
+<h4 id="org6623497"><span class="section-number-4">5.1.5.</span> Vectorization</h4>
+<div class="outline-text-4" id="text-5-1-5">
+<p>
+Modern processors can use vector registers to perform multiple calculations on multiple pieces of data in parallel. For instance, the SSE2 instruction set has 128-bit vector registers, which can be used to perform multiple operations on multiple integers or floating values depending on the size of these types. Extending this further, the AVX2 instruction set, for example, has 256-bit vector registers and can support a higher degree of vectorized operations. This optimization can be technically considered as part of the discussion in the <i>Using special instructions depending on the architecture</i> section from before.
+</p>
+
+<p>
+To understand vectorization even better, let us present the following very simple example of a loop that operates on two arrays and stores the result in another array (<b>vector.cpp</b> in <b>Chapter3</b> in GitHub):
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #4f97d7; font-weight: bold; font-style: italic;">const</span> <span style="color: #6434A3;">size_t</span> <span style="color: #BA36A5;">size</span> = 1024;
+<span style="color: #6434A3;">float</span> <span style="color: #BA36A5;">x</span><span style="color: #707183;">[</span>size<span style="color: #707183;">]</span>, <span style="color: #BA36A5;">a</span><span style="color: #707183;">[</span>size<span style="color: #707183;">]</span>, <span style="color: #BA36A5;">b</span><span style="color: #707183;">[</span>size<span style="color: #707183;">]</span>;
+<span style="color: #4f97d7; font-weight: bold; font-style: italic;">for</span> <span style="color: #707183;">(</span><span style="color: #6434A3;">size_t</span> <span style="color: #BA36A5;">i</span> = 0; i &lt; size; ++i<span style="color: #707183;">)</span> <span style="color: #707183;">{</span>
+  x<span style="color: #7388D6;">[</span>i<span style="color: #7388D6;">]</span> = a<span style="color: #7388D6;">[</span>i<span style="color: #7388D6;">]</span> + b<span style="color: #7388D6;">[</span>i<span style="color: #7388D6;">]</span>;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+
+<p>
+For architectures that support special vector registers such as the SSE2 instruction set we discussed before, it can hold 4 4-byte float values simultaneously and perform 4 additions at a time. In this case, the compiler can leverage the vectorization optimization technique and re-write this as the following with loop unrolling to use the SSE2 instruction set:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #4f97d7; font-weight: bold; font-style: italic;">for</span> <span style="color: #707183;">(</span><span style="color: #6434A3;">size_t</span> <span style="color: #BA36A5;">i</span> = 0; i &lt; size; i += 4<span style="color: #707183;">)</span> <span style="color: #707183;">{</span>
+  x<span style="color: #7388D6;">[</span>i<span style="color: #7388D6;">]</span> = a<span style="color: #7388D6;">[</span>i<span style="color: #7388D6;">]</span> + b<span style="color: #7388D6;">[</span>i<span style="color: #7388D6;">]</span>;
+  x<span style="color: #7388D6;">[</span>i + 1<span style="color: #7388D6;">]</span> = a<span style="color: #7388D6;">[</span>i + 1<span style="color: #7388D6;">]</span> + b<span style="color: #7388D6;">[</span>i + 1<span style="color: #7388D6;">]</span>;
+  x<span style="color: #7388D6;">[</span>i + 2<span style="color: #7388D6;">]</span> = a<span style="color: #7388D6;">[</span>i + 2<span style="color: #7388D6;">]</span> + b<span style="color: #7388D6;">[</span>i + 2<span style="color: #7388D6;">]</span>;
+  x<span style="color: #7388D6;">[</span>i + 3<span style="color: #7388D6;">]</span> = a<span style="color: #7388D6;">[</span>i + 3<span style="color: #7388D6;">]</span> + b<span style="color: #7388D6;">[</span>i + 3<span style="color: #7388D6;">]</span>;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8ec0df9" class="outline-4">
+<h4 id="org8ec0df9"><span class="section-number-4">5.1.6.</span> Strength reduction</h4>
+<div class="outline-text-4" id="text-5-1-6">
+<p>
+<b>Strength reduction</b> is a term used to describe compiler optimizations where complex operations that are quite expensive are replaced by instructions that are simpler and cheaper to improve performance. A classic example is one in which the compiler replaces operations involving division by some value with multiplication by the reciprocal of that value. Another example would be replacing multiplication by a loop index with an addition operation.
+</p>
+
+<p>
+The simplest example we could think of is presented here, where we try to convert a price from its double notation into its integer notation by dividing the floating value by its minimum valid price increment. The variant that demonstrates the strength reduction that a compiler would perform is a simple multiplication instead of a division. Note that <b>inv<sub>min</sub><sub>price</sub><sub>increment</sub> = 1 / min<sub>price</sub><sub>increment</sub>;</b> is a <b>constexpr</b> expression, so it is not evaluated at runtime. This code is available in the <b>Chapter3/strength.cpp</b> file:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #808080;">#include</span> <span style="color: #707183;">&lt;</span><span style="color: #008000;">cstdint</span><span style="color: #707183;">&gt;</span>
+<span style="color: #6434A3;">int</span> <span style="color: #006699;">main</span><span style="color: #707183;">()</span> <span style="color: #707183;">{</span>
+  <span style="color: #4f97d7; font-weight: bold; font-style: italic;">const</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">auto</span> <span style="color: #BA36A5;">price</span> = 10.125; <span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">prices are like: 10.125,</span>
+       10.130, 10.135...
+  <span style="color: #4f97d7; font-weight: bold; font-style: italic;">constexpr</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">auto</span> min_price_increment = 0.005;
+  <span style="color: #7388D6;">[</span><span style="color: #909183;">[</span>maybe_unused<span style="color: #909183;">]</span><span style="color: #7388D6;">]</span> <span style="color: #6434A3;">int64_t</span> <span style="color: #BA36A5;">int_price</span> = 0;
+  <span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">no strength reduction</span>
+  int_price = price / min_price_increment;
+  <span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">strength reduction</span>
+  <span style="color: #4f97d7; font-weight: bold; font-style: italic;">constexpr</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">auto</span> <span style="color: #BA36A5;">inv_min_price_increment</span> = 1 /
+       min_price_increment;
+  int_price = price * inv_min_price_increment;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2e9e9fa" class="outline-4">
+<h4 id="org2e9e9fa"><span class="section-number-4">5.1.7.</span> Inlining</h4>
+<div class="outline-text-4" id="text-5-1-7">
+<p>
+Calling functions is expensive, as we have already seen before. There are several steps:
+</p>
+
+<ul class="org-ul">
+<li>Saving the current state of variables and execution</li>
+<li>Loading the variables and instructions from the function being called</li>
+<li>Executing them and possibly returning back values and resuming execution after the function call</li>
+</ul>
+
+<p>
+The compiler tries to replace a call to a function with the body of the function where possible to remove this overhead associated with calling functions and optimize performance. Not only that but now that it has replaced a call to a function with the actual body of the function, that opens room for more optimizations since the compiler can inspect this new larger code block.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org490d5f2" class="outline-4">
+<h4 id="org490d5f2"><span class="section-number-4">5.1.8.</span> Constant folding and constant propagation</h4>
+<div class="outline-text-4" id="text-5-1-8">
+<p>
+<b>Constant folding</b> is a no-brainer optimization technique and applies when there are expressions whose output can be computed entirely at compile time that do not depend on runtime branches or variables. Then, the compiler computes these expressions at compile time and replaces the evaluation of these expressions with the compile-time constant output value.
+</p>
+
+<p>
+A similar and closely related compiler optimization tracks values in the code that are known to be compile-time constants and tries to propagate those constant values and unlock additional optimization opportunities. This optimization technique is known as <b>constant propagation</b>. An example would be loop unrolling if the compiler can determine the starting value, incremental value, or stopping value of the loop iterator.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5f59b3c" class="outline-4">
+<h4 id="org5f59b3c"><span class="section-number-4">5.1.9.</span> Dead Code Elimination (DCE)</h4>
+<div class="outline-text-4" id="text-5-1-9">
+<p>
+<b>DCE</b> applies when the compiler can detect code blocks that have no impact on the program behavior. This can be due to code blocks that are never needed or code blocks where the calculations do not end up being used or affect the outcome. Once the compiler detects such <i>dead</i> code blocks, it can remove them and boost program performance. Modern compilers emit warnings when the outcome of running some code ends up not being used to help developers find such cases, but the compiler cannot detect all of these cases at compile time and there are still opportunities for DOE once it is translated into machine code instructions.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf75b562" class="outline-4">
+<h4 id="orgf75b562"><span class="section-number-4">5.1.10.</span> Common Subexpression Elimination (CSE)</h4>
+<div class="outline-text-4" id="text-5-1-10">
+<p>
+<b>CSE</b> is a specific optimization technique where the compiler finds duplicated sets of instructions or calculations. Here, the compiler restructures the code to remove this redundancy by computing the result only once and then using the value where it is required.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6bc5323" class="outline-4">
+<h4 id="org6bc5323"><span class="section-number-4">5.1.11.</span> Peephole optimizations</h4>
+<div class="outline-text-4" id="text-5-1-11">
+<p>
+<b>Peephole optimization</b> is a relatively generic compiler optimization term that refers to a compiler optimization technique where the compiler tries to search for local optimizations in short sequences of instructions. We use the term local because the compiler does not necessarily try to understand the entire program and optimize it globally. Of course, however, by repeatedly and iteratively performing peephole optimizations, the compiler can achieve a decent degree of optimization at a global scale.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgccddb4a" class="outline-4">
+<h4 id="orgccddb4a"><span class="section-number-4">5.1.12.</span> Tail call optimization</h4>
+<div class="outline-text-4" id="text-5-1-12">
+<p>
+We know that function calls are not cheap because they have overhead associated with passing parameters and results and affect the cache performance and processor pipeline. <b>Tail call optimization</b> refers to compiler optimization techniques in which recursive function calls are replaced by loops. This has obvious performance benefits such as eliminating function call overheads and stack operations and avoids possible stack overflow cases. The following simple example of a recursive factorial implementation. For now, you can ignore the <b>_<sub>attribute</sub>__ ((noinline))</b> attribute, which is there to explicitly prevent the compiler from inlining the <b>factorial()</b> function directly into <b>main()</b>. You can find this example in the <b>Chapter3/tail<sub>call.cpp</sub></b> source file on GitHub:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #4f97d7; font-weight: bold; font-style: italic;">auto</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">__attribute__</span> <span style="color: #707183;">(</span><span style="color: #7388D6;">(</span>noinline<span style="color: #7388D6;">)</span><span style="color: #707183;">)</span> <span style="color: #006699;">factorial</span><span style="color: #707183;">(</span><span style="color: #6434A3;">unsigned</span> n<span style="color: #707183;">)</span> -&gt;
+     <span style="color: #6434A3;">unsigned</span> <span style="color: #707183;">{</span>
+  <span style="color: #4f97d7; font-weight: bold; font-style: italic;">return</span> <span style="color: #7388D6;">(</span>n ? n * factorial<span style="color: #909183;">(</span>n - 1<span style="color: #909183;">)</span> : 1<span style="color: #7388D6;">)</span>;
+<span style="color: #707183;">}</span>
+<span style="color: #6434A3;">int</span> <span style="color: #006699;">main</span><span style="color: #707183;">()</span> <span style="color: #707183;">{</span>
+  <span style="color: #7388D6;">[</span><span style="color: #909183;">[</span>maybe_unused<span style="color: #909183;">]</span><span style="color: #7388D6;">]</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">volatile</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">auto</span> <span style="color: #BA36A5;">res</span> = factorial<span style="color: #7388D6;">(</span>100<span style="color: #7388D6;">)</span>;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+
+<p>
+For this implementation, we would expect that in the machine code for the <b>factorial()</b> function, we would find a call to itself, but when compiled with optimization turned on, the compiler performs tail call optimization and implements the <b>factorial()</b> function as a loop and not a recursion. To observe that machine code, you can compile this code with something like this:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp">g++ -S -Wall -O3 tail_call.cpp ; cat tail_call.s
+</pre>
+</div>
+
+<p>
+And in that <b>tail<sub>call.s</sub></b> file, you will see the call to <b>factorial()</b> in <b>main()</b> to be something like the following example. If this is your first time looking at assembly code, then let us quickly describe the instructions you will encounter.
+</p>
+
+<ul class="org-ul">
+<li>The <b>movl</b> instruction moves a value into a register (100 in the following block)</li>
+
+<li>The <b>call</b> instruction calls a function (<b>factorial()</b> with name mangling (step where the C++ compiler changes the function names in intermediate code) and the parameter is passed in the <b>edi</b> register)</li>
+
+<li>The <b>testl</b> instruction compares two registers and sets the zero flag if they're equal</li>
+
+<li><b>je</b> and <b>jne</b> check whether the  zero flag is set and jump to the specified memory address if it is (<b>je</b>) or jump to the specified memory address if it is not (<b>jne</b>)</li>
+
+<li><p>
+The <b>ret</b> instruction returns from the function and the return value is in the <b>eax</b> register:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #D0372D;">main</span>:
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-cpp">.LFB1
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-cpp">Movl    $100, %edi
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-cpp">Call    _Z9factorialj
+</pre>
+</div></li>
+</ul>
+
+<p>
+When you look at the <b>factorial()</b> function itself, you will find a loop (the <b>je</b> and <b>jne</b> instructions) instead of an additional <b>call</b> instruction to itself:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #D0372D;">_Z9factorialj</span>:
+.LFB0:
+    Movl    $1, %eax
+    testl    %edi, %edi
+    je    .L4
+.L3:
+    Imull    %edi, %eax
+    subl    $1, %edi
+    jne    .L3
+    ret
+.L4:
+    ret
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org39a0d65" class="outline-4">
+<h4 id="org39a0d65"><span class="section-number-4">5.1.13.</span> Loop unrolling</h4>
+<div class="outline-text-4" id="text-5-1-13">
+<p>
+<b>Loop unrolling</b> duplicates the body of the loop multiple times. Sometimes, it is not possible for the compiler to know at compile time how many times the loop will be executed &#x2013; in which case, it will partially unroll the loop. For loops where the loop body is small and/or where it can be determined that the number of times that the loop will execute is low, the compiler can completely unroll the loop. This avoids the need for checking the loop counters and the overhead associated with conditional branching or looping. This is like function inlining where the call to the function is replaced by the body of the function. For loop unrolling, the entire loop is rolled out and replaces the conditional loop body.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf6bc43f" class="outline-4">
+<h4 id="orgf6bc43f"><span class="section-number-4">5.1.14.</span> Additional loop optimizations</h4>
+<div class="outline-text-4" id="text-5-1-14">
+<p>
+<b>Loop unrolling</b> is the primary loop-related optimization technique employed by compilers but there are additional loop optimizations:
+</p>
+
+<ul class="org-ul">
+<li><b>Loop fission</b> breaks a loop down into multiple loops operating on smaller sets of data to improve cache reference locality.</li>
+<li><b>Loop fusion</b> does the opposite, where if two adjacent loops are executed the same number of times, they can be merged into one to reduce the loop overhead.</li>
+<li><b>Loop inversion</b> is a technique where a <b>while</b> loop is transformed into a <b>do-while</b> loop inside a conditional <b>if</b> statement. This reduces the total number of jumps by two when the loop is executed and is typically applied to loops that are expected to execute at least once.</li>
+<li><b>Loop interchange</b> exchanges inner loops and outer loops especially when doing so leads to better cache reference locality &#x2013; for example, in the cases of iterating over an array where accessing memory contiguously makes a huge performance difference.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org4dd4a25" class="outline-4">
+<h4 id="org4dd4a25"><span class="section-number-4">5.1.15.</span> Register variables</h4>
+<div class="outline-text-4" id="text-5-1-15">
+<p>
+<b>Registers</b> are internal processor memory and are the fastest form of storage available for the processor on account of being the closest to them. Because of this, the compiler tries to store variables that have the highest number of accesses in the registers. Registers, however, are limited, so the compiler needs to choose the variables to store effectively, and the effectiveness of this choice can make a significant difference to performance. The compiler typically picks variables such as local variables, loop counter and iterator variables, function parameters, commonly used expressions, or <b>induction variables</b> (variables that change by fixed amounts on each loop iteration). There are some limitations to what the compiler can place in registers such as variables whose address needs to be taken via pointers or references that need to reside in the main memory.
+</p>
+
+<p>
+Now, we present a very simple example of how a compiler will transform a loop expression using induction variables. See the following code (<b>Chapter3/induction.cpp</b> on GitHub):
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp">  <span style="color: #4f97d7; font-weight: bold; font-style: italic;">for</span><span style="color: #707183;">(</span><span style="color: #4f97d7; font-weight: bold; font-style: italic;">auto</span> <span style="color: #BA36A5;">i</span> = 0; i &lt; 100; ++i<span style="color: #707183;">)</span>
+    a<span style="color: #707183;">[</span>i<span style="color: #707183;">]</span> = i * 10 + 12;
+gets transformed into something of the form presented below
+     <span style="color: #4f97d7; font-weight: bold; font-style: italic;">and</span> avoids the multiplication in the loop <span style="color: #4f97d7; font-weight: bold; font-style: italic;">and</span> replaces
+     it
+       with an induction variable based addition.
+  <span style="color: #6434A3;">int</span> temp = 12;
+  <span style="color: #4f97d7; font-weight: bold; font-style: italic;">for</span><span style="color: #707183;">(</span><span style="color: #4f97d7; font-weight: bold; font-style: italic;">auto</span> <span style="color: #BA36A5;">i</span> = 0; i &lt; 100; ++i<span style="color: #707183;">)</span> <span style="color: #707183;">{</span>
+    a<span style="color: #7388D6;">[</span>i<span style="color: #7388D6;">]</span> = temp;
+    temp += 10;
+  <span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org288fbe0" class="outline-4">
+<h4 id="org288fbe0"><span class="section-number-4">5.1.16.</span> Live range analysis</h4>
+<div class="outline-text-4" id="text-5-1-16">
+<p>
+The term <b>live range</b> describes the code block within which a variable is active or used. If there are multiple variables in the same code block with overlapping live ranges, then each variable needs a different storage location. However, if there are variables with live ranges that do not overlap, then the compiler can use the same register for multiple variables in each live range.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org278e6c4" class="outline-4">
+<h4 id="org278e6c4"><span class="section-number-4">5.1.17.</span> Rematerialization</h4>
+<div class="outline-text-4" id="text-5-1-17">
+<p>
+<b>Rematerialization</b> is a compiler technique where the compiler chooses to re-calculate a value (assuming the calculation is trivial) instead of accessing the memory location that contains the value of this calculation already. The output value of this recalculation must be stored in registers, so this technique works in tandem with <i>register allocation techniques</i>. The main objective here is to avoid accessing the caches and main memory, which are slower to access than accessing the register storage. This, of course, depends on making sure that the recalculation takes less time than a cache or memory access.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4d9f3ef" class="outline-4">
+<h4 id="org4d9f3ef"><span class="section-number-4">5.1.18.</span> Algebraic reductions</h4>
+<div class="outline-text-4" id="text-5-1-18">
+<p>
+The compiler can find expressions that can be further reduced and simplified using algebraic laws. While software developers do not unnecessarily complicate expressions, there are cases where simpler forms of expressions exist compared to what the developer originally wrote in C++. Opportunities for algebraic reductions also show up as the compiler optimizes code iteratively due to inlining, macro expansions, constant folding, and so on.
+</p>
+
+<p>
+Something to note here is that compilers do not typically apply algebraic reductions to floating-point operations because, in C++, floating-point operations are not safe to reduce due to precision issues. Flags need to be turned on to force the compiler to perform unsafe floating-point algebraic reductions, but it would be preferable for developers to reduce them explicitly and correctly.
+</p>
+
+<p>
+The simplest example we can think of here is where a compiler might rewrite this expression:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span><span style="color: #707183;">(</span>!a &amp;&amp; !b<span style="color: #707183;">)</span> <span style="color: #707183;">{}</span>
+</pre>
+</div>
+
+<p>
+Here, it uses two operations instead of three previously like so:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span><span style="color: #707183;">(</span>!<span style="color: #7388D6;">(</span>a || b<span style="color: #7388D6;">)</span><span style="color: #707183;">)</span> <span style="color: #707183;">{}</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf40059c" class="outline-4">
+<h4 id="orgf40059c"><span class="section-number-4">5.1.19.</span> Induction variable analysis</h4>
+<div class="outline-text-4" id="text-5-1-19">
+<p>
+The idea behind <b>induction variable</b>-related compiler optimization techniques is that an expression that is a linear function of the loop counter variable can be reduced into an expression that is a simple addition to a previous value. The simplest possible example would be calculating the address of elements in an array where the next element is at a memory location equal to the current element's location plus the size of the object type. This is just a simple example since in modern compilers and processors, there are special instructions to calculate addresses of array elements and induction is not really used there, but induction variable-based optimizations are still performed for other loop expressions.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1edd3cd" class="outline-4">
+<h4 id="org1edd3cd"><span class="section-number-4">5.1.20.</span> Loop invariant code movement</h4>
+<div class="outline-text-4" id="text-5-1-20">
+<p>
+When the compiler can ascertain that some code and instructions within a loop are constant for the entire duration of the loop, that expression can be moved out of the loop. If there are expressions within the loop that conditionally yield one value or the other depending on branching conditions, those can also be moved out of the loop. Also, if there are expressions executed on each branch within a loop, these can be moved out of the branches and possibly the loop. There are many such optimization possibilities, but the fundamental idea is that code that does not need to be executed on each loop iteration or can be evaluated once before the loop falls under the umbrella of loop invariant code refactoring. Here is a hypothetical example of how loop invariant code movement implemented by the compiler would work. The first block is what the developer originally wrote, but the compiler can understand that the call to <b>doSomething()</b> and the expression involving the <b>b</b> variable are loop invariants and only need to be computed once. You will find this code in the <b>Chapter3/loop<sub>invariant.cpp</sub></b> file:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #808080;">#include</span> <span style="color: #707183;">&lt;</span><span style="color: #008000;">cstdlib</span><span style="color: #707183;">&gt;</span>
+<span style="color: #6434A3;">int</span> <span style="color: #006699;">main</span><span style="color: #707183;">()</span> <span style="color: #707183;">{</span>
+  <span style="color: #4f97d7; font-weight: bold; font-style: italic;">auto</span> <span style="color: #BA36A5;">doSomething</span> = <span style="color: #7388D6;">[](</span><span style="color: #6434A3;">double</span> <span style="color: #BA36A5;">r</span><span style="color: #7388D6;">)</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">noexcept</span> <span style="color: #7388D6;">{</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">return</span> 3.14 *
+       r * r; <span style="color: #7388D6;">}</span>;
+  <span style="color: #7388D6;">[</span><span style="color: #909183;">[</span>maybe_unused<span style="color: #909183;">]</span><span style="color: #7388D6;">]</span> <span style="color: #6434A3;">int</span> <span style="color: #BA36A5;">a</span><span style="color: #7388D6;">[</span>100<span style="color: #7388D6;">]</span>, <span style="color: #BA36A5;">b</span> = rand<span style="color: #7388D6;">()</span>;
+  <span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">original</span>
+  <span style="color: #4f97d7; font-weight: bold; font-style: italic;">for</span><span style="color: #7388D6;">(</span><span style="color: #4f97d7; font-weight: bold; font-style: italic;">auto</span> <span style="color: #BA36A5;">i</span> = 0; i &lt; 100; ++i<span style="color: #7388D6;">)</span>
+    a<span style="color: #7388D6;">[</span>i<span style="color: #7388D6;">]</span> = <span style="color: #7388D6;">(</span>doSomething<span style="color: #909183;">(</span>50<span style="color: #909183;">)</span> + b * 2<span style="color: #7388D6;">)</span> + 1;
+  <span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">loop invariant code movement</span>
+  <span style="color: #4f97d7; font-weight: bold; font-style: italic;">auto</span> <span style="color: #BA36A5;">temp</span> = <span style="color: #7388D6;">(</span>doSomething<span style="color: #909183;">(</span>50<span style="color: #909183;">)</span> + b * 2<span style="color: #7388D6;">)</span> + 1;
+  <span style="color: #4f97d7; font-weight: bold; font-style: italic;">for</span><span style="color: #7388D6;">(</span><span style="color: #4f97d7; font-weight: bold; font-style: italic;">auto</span> <span style="color: #BA36A5;">i</span> = 0; i &lt; 100; ++i<span style="color: #7388D6;">)</span>
+    a<span style="color: #7388D6;">[</span>i<span style="color: #7388D6;">]</span> = temp;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf5abe9d" class="outline-4">
+<h4 id="orgf5abe9d"><span class="section-number-4">5.1.21.</span> Static Single Assignment (SSA)-based optimizations</h4>
+<div class="outline-text-4" id="text-5-1-21">
+<p>
+SSA is a transformed form of the original program where instructions are re-ordered such that every variable is assigned in a single place. After this transformation, the compiler can apply many additional optimizations, leveraging the property that every variable is assigned in only a single place.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org130b03b" class="outline-4">
+<h4 id="org130b03b"><span class="section-number-4">5.1.22.</span> Devirtualization</h4>
+<div class="outline-text-4" id="text-5-1-22">
+<p>
+<b>Devirtualization</b> is a compiler optimization technique, especially for C++, that tries to avoid <b>Virtual Table</b> (<b>vtable</b>) lookups when calling virtual functions. This optimization technique boils down to the compiler figuring out the correct method to call at compile time. This can happen even when using virtual functions because in some cases, the object type is known at compile time, such as when there is only a single implementation of pure virtual functions.
+</p>
+
+<p>
+Another case is where the compiler can determine that only a single derived class is created and used in some contexts or code branches, and it can replace the indirect functional call using vtable to be a direct call to the correct derived type's method.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc1c79fa" class="outline-3">
+<h3 id="orgc1c79fa"><span class="section-number-3">5.2.</span> Understanding when compilers fail to optimize</h3>
+<div class="outline-text-3" id="text-5-2">
+<p>
+In this section, we will discuss the different scenarios under which a compiler cannot apply some of the optimization techniques we discussed in the previous section. Understanding when compilers fail to optimize will help us develop C++ code that avoids these failures so that the code can be highly optimized by the compiler to yield highly efficient machine code.
+</p>
+</div>
+
+<div id="outline-container-orgcb033ac" class="outline-4">
+<h4 id="orgcb033ac"><span class="section-number-4">5.2.1.</span> Failure to optimize across modules</h4>
+<div class="outline-text-4" id="text-5-2-1">
+<p>
+When the compiler compiles the entire program, it compiles modules independently of each other on a file-by-file basis. So, the compiler does not have information about functions in a module other than the one it is currently compiling. This prevents it from being able to optimize functions across modules and a lot of the techniques we saw cannot be applied since the compiler does not understand the whole program. Modern compilers solve such issues by using <b>LTO</b>, where, after the individual modules are compiled, the linker treats the different modules as if they were part of the same translation unit at compile time. This activates all the optimizations we have discussed so far, so it is important to enable LTO when trying to optimize the entire application.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6338984" class="outline-4">
+<h4 id="org6338984"><span class="section-number-4">5.2.2.</span> Dynamic memory allocation</h4>
+<div class="outline-text-4" id="text-5-2-2">
+<p>
+We already know that dynamic memory allocation is slow at runtime and introduces non-deterministic latency into your applications. They also have another side effect and that is <b>pointer aliasing</b> in the pointers that point to these dynamically allocated memory blocks. We will look at pointer aliasing in more detail next, but with dynamically allocated memory blocks, the compiler cannot ascertain that the pointers will necessarily point to different and non-overlapping memory areas, even though for the programmer it might seem obvious. This prevents various compiler optimizations that depend on aligning data or assuming alignment, as well as pointer aliasing-related inefficiencies, which we will see next. Local storage and declarations are also more cache-efficient because the memory space gets reused frequently as new functions are called and local objects are created. Dynamically allocated memory blocks can be randomly scattered in memory and yield poor cache performance.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org65042a5" class="outline-4">
+<h4 id="org65042a5"><span class="section-number-4">5.2.3.</span> Pointer aliasing</h4>
+<div class="outline-text-4" id="text-5-2-3">
+<p>
+When accessing variables through pointers or references, while it might be obvious to the developer which pointers point to different and non-overlapping memory locations, the compiler cannot be 100% sure. To put it another way, the compiler cannot guarantee that a pointer is not pointing to another variable in the code block or different pointers are not pointing to overlapping memory locations. Since the compiler must assume this possibility, this prevents a lot of the compiler optimizations we discussed before since they can no longer be applied safely. There are ways to specify which pointers the compiler can safely assume are not aliases in C++ code. Another way would be to instruct the compiler to assume no pointer aliasing across the entire code, but that would require the developer to analyze all pointers and references and make sure there is never any aliasing, which is not trivial to do. Finally, the last option is to optimize the code explicitly keeping these hindrances to compiler optimizations in mind, which is not trivial either.
+</p>
+
+<p>
+Our advice on dealing with pointer aliasing would be to do the following:
+</p>
+
+<ol class="org-ol">
+<li>Use the <b>_<sub>restrict</sub></b> keyword in the function declarations when passing pointers to functions to instruct the compiler to assume no pointer aliasing for the pointers marked with that specifier</li>
+<li>If additional optimization is required, we recommend explicitly optimizing code paths, being aware of pointer aliasing considerations</li>
+<li>Finally, if additional optimizations are still required, we can instruct the compiler to assume no pointer aliasing across the entire code base, but this is a dangerous option and should only be used as a last resort</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgd10bfec" class="outline-4">
+<h4 id="orgd10bfec"><span class="section-number-4">5.2.4.</span> Floating-point induction variables</h4>
+<div class="outline-text-4" id="text-5-2-4">
+<p>
+Compilers typically do not use induction variable optimizations for floating-point expressions and variables. This is because of the rounding errors and issues with precision that we have discussed before. This prevents compiler optimizations when dealing with floating-point expressions and values. There are compiler options that can enable unsafe floating-point optimizations, but the developer must make sure to check each expression and formulate them in such a way that these precision issues due to compiler optimizations do not have unintended side effects. This is not a trivial task; hence, developers should be careful to either optimize floating-point expressions explicitly or analyze side effects from unsafe compiler optimizations.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb016c2d" class="outline-4">
+<h4 id="orgb016c2d"><span class="section-number-4">5.2.5.</span> Virtual functions and function pointers</h4>
+<div class="outline-text-4" id="text-5-2-5">
+<p>
+We have already discussed that when it comes to virtual functions and function pointers, the compiler cannot perform optimizations at compile time since in many cases it is not possible for the compiler to determine which method will be called at runtime.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org91efe08" class="outline-3">
+<h3 id="org91efe08"><span class="section-number-3">5.3.</span> Learning about compiler optimization flags</h3>
+<div class="outline-text-3" id="text-5-3">
+<p>
+So far, we have discussed the different optimization techniques that the compiler uses, as well as the different cases where the compiler fails to optimize our C++ code. There are two fundamental keys to generating optimized low-latency code. The first is to write efficient C++ code and optimize manually in cases where the compiler might not be able to do so. Secondly, you can provide the compiler with as much visibility and information as possible so it can make the correct and best optimization decisions. We can convey our intent to the compiler through the compiler flags we use to configure it.
+</p>
+
+<p>
+In this section, we will learn about the compiler flags for the GCC since that is the compiler we will use in this book. However, most modern compilers have flags to configure optimizations like the ones we will discuss in this section.
+</p>
+</div>
+
+<div id="outline-container-org9c2f0c5" class="outline-4">
+<h4 id="org9c2f0c5"><span class="section-number-4">5.3.1.</span> Approaching compiler optimization flags</h4>
+<div class="outline-text-4" id="text-5-3-1">
+<p>
+At a high level, the general approach toward GCC compiler optimization flags is the following:
+</p>
+
+<ul class="org-ul">
+<li>The highest optimization level is typically preferred so <b>&#x2013;O3</b> is a good starting point and enables a lot of optimizations, which we will see shortly.</li>
+<li>Measuring the performance of the application in practice is the best way to measure and optimize the most critical code paths. GCC itself can perform <b>Profile-Guided Optimization</b> (<b>PGO</b>) when the <b>-fprofile-generate</b> option is enabled. The compiler determines the flow of the program and counts how many times each function and code branch is executed to find optimizations for the critical code paths.</li>
+<li>Enabling <b>LTO</b> is a good practice for building the lowest latency machine code due to the reasons we have discussed before and the inability of the compiler to optimize across modules without this. For GCC, the <b>&#x2013;flto</b> parameter enables LTO for our applications. The <b>-fwhole-program</b> option enables <b>WPO</b> to enable inter-procedural optimizations, treating the entire code base as a whole program.</li>
+<li>Allowing the compiler to generate a build for a specific architecture where the application will run is a good idea. This lets the compiler use special instruction sets specific to that architecture and maximize optimization opportunities. For GCC, this is enabled using the <b>&#x2013;**march</b> parameter.</li>
+<li>It is recommended to disable <b>RTTI</b> because RTTI depends on figuring out the type of an object at runtime. For GCC, this is achieved using the <b>-**no-rtti</b> parameter.</li>
+<li>It is possible to instruct the GCC compiler to enable fast floating-point value optimizations and even enable unsafe floating-point optimizations. GCC has the <b>-ffp-model=fast</b>, <b>-funsafe-math-optimizations</b> and <b>-ffinite-math-only</b> options to enable these unsafe floating-point optimizations. When using these flags, it is important that the developer carefully thinks about the order of operations and the precision resulting from these operations. When using a parameter such as <b>-ffinite-math-only</b>, make sure that all floating-point variables and expressions are finite because this optimization depends on that property. <b>-fno-trapping-math</b> and <b>-fno-math-errno</b> allow the compiler to vectorize loops containing floating-point operations by assuming that there will be no reliance on exception handling or the <b>errno</b> global variable for error signaling.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd3e3aca" class="outline-4">
+<h4 id="orgd3e3aca"><span class="section-number-4">5.3.2.</span> Understanding the details of GCC optimization flags</h4>
+<div class="outline-text-4" id="text-5-3-2">
+<p>
+In this section, we will provide additional details on the GCC optimization flags available. The complete list of optimization flags available is exceptionally large and out of the scope of this book. First, we will describe what turning on the higher-level optimization directives, <b>&#x2013;O1</b>, <b>&#x2013;O2</b>, and <b>&#x2013;O3</b>, enables in GCC, and we encourage interested readers to learn about each one of these in greater detail from the GCC manual.
+</p>
+</div>
+
+<ol class="org-ol">
+<li><a id="org4710135"></a>Optimization level -O1<br />
+<div class="outline-text-5" id="text-5-3-2-1">
+<p>
+<b>&#x2013;O1</b> is the first level of optimization and enables the following flags presented in the following table. At this level, the compiler tries to reduce the code size and execution time without incurring a very large increase in compilation, linking, and optimization times. These are the most important levels of optimization and provide tremendous optimization opportunities based on the ones we discussed in this chapter. We will discuss a few of the flags next.
+</p>
+
+<p>
+<b>-fdce</b> and <b>&#x2013;fdse</b> perform DCE and <b>Dead Store</b> <b>Elimination</b> (<b>DSE</b>).
+</p>
+
+<p>
+<b>-fdelayed-branch</b> is supported on many architectures and tries to reorder instructions to try and maximize the throughput of the pipeline after delayed branch instructions.
+</p>
+
+<p>
+<b>-fguess-branch-probability</b> tries to guess branch probabilities based on heuristics for branches that the developer has not provided any hints.
+</p>
+
+<p>
+<b>-fif-conversion</b> and <b>-fif-conversion2</b> try to eliminate branching by changing them into branchless equivalents using tricks similar to what we discussed in this chapter.
+</p>
+
+<p>
+<b>-fmove-loop-invariants</b> enables loop invariant code movement optimization.
+</p>
+
+<p>
+If you are interested, you should investigate the details of these flags since discussing every parameter is outside the scope of this book.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><b>-**fauto-inc-dec</b></td>
+<td class="org-left"><b>-**fshrink-wrap</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>-**fbranch-count-reg</b></td>
+<td class="org-left"><b>-**fshrink-wrap-separate</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>-**fcombine-stack-adjustments</b></td>
+<td class="org-left"><b>-**fsplit-wide-types</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>-**fcompare-elim</b></td>
+<td class="org-left"><b>-**fssa-backprop</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>-**fcprop-registers</b></td>
+<td class="org-left"><b>-**fssa-phiopt</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>-**fdce</b></td>
+<td class="org-left"><b>-**ftree-bit-ccp</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>-**fdefer-pop</b></td>
+<td class="org-left"><b>-**ftree-ccp</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>-**fdelayed-branch</b></td>
+<td class="org-left"><b>-**ftree-ch</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>-**fdse</b></td>
+<td class="org-left"><b>-**ftree-coalesce-vars</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>-**fforward-propagate</b></td>
+<td class="org-left"><b>-**ftree-copy-prop</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>-**fguess-branch-probability</b></td>
+<td class="org-left"><b>-**ftree-dce</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>-**fif-conversion</b></td>
+<td class="org-left"><b>-**ftree-dominator-opts</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>-**fif-conversion2</b></td>
+<td class="org-left"><b>-**ftree-dse</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>-**finline-functions-called-once</b></td>
+<td class="org-left"><b>-**ftree-forwprop</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>-**fipa-modref</b></td>
+<td class="org-left"><b>-**ftree-fre</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>-**fipa-profile</b></td>
+<td class="org-left"><b>-**ftree-phiprop</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>-**fipa-pure-const</b></td>
+<td class="org-left"><b>-**ftree-pta</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>-**fipa-reference</b></td>
+<td class="org-left"><b>-**ftree-scev-cprop</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>-**fipa-reference-addressable</b></td>
+<td class="org-left"><b>-**ftree-sink</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>-**fmerge-constants162</b></td>
+<td class="org-left"><b>-**ftree-slsr</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>-**fmove-loop-invariants</b></td>
+<td class="org-left"><b>-**ftree-sra</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>-**fmove-loop-stores</b></td>
+<td class="org-left"><b>-**ftree-ter</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>-**fomit-frame-pointer</b></td>
+<td class="org-left"><b>-**funit-at-a-time</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>-**freorder-blocks</b></td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Table 3.1 &#x2013; GCC optimization flags enabled when -O1 is enabled
+</p>
+</div>
+</li>
+
+<li><a id="org3783255"></a>Optimization level -O2<br />
+<div class="outline-text-5" id="text-5-3-2-2">
+<p>
+<b>-O2</b> is the next optimization level and at this level, GCC will perform a lot more optimizations and will lead to longer compilation and linking times. <b>-O2</b> adds the flags in the following table in addition to the flags enabled by <b>&#x2013;O1</b>. We will quickly discuss a few of these flags and leave a detailed discussion of each flag up to interested readers to pursue.
+</p>
+
+<p>
+<b>-falign-functions</b>, <b>-falign-labels</b>, and <b>-falign-loops</b> align the starting address of functions, jump targets, and loop locations so that the processor can access them as efficiently as possible. The principles we discussed on optimal data alignment in this chapter apply to the instruction addresses as well.
+</p>
+
+<p>
+<b>-fdelete-null-pointer-checks</b> lets the program assume that dereferencing null pointers is not safe and leverages that assumption to perform constant folding, eliminate null pointer checks, and so on.
+</p>
+
+<p>
+<b>-fdevirtualize</b> and <b>-fdevirtualize-speculatively</b> attempt to convert virtual function calls into direct function calls wherever possible. This, in turn, can lead to even more optimization due to inlining.
+</p>
+
+<p>
+<b>-fgcse</b> enables <b>Global Common Subexpression Elimination</b> (<b>GCSE</b>) and constant propagation.
+</p>
+
+<p>
+<b>-finline-functions</b>, <b>-finline-functions-called-once</b>, and <b>-findirect-inlining</b> increase the aggressiveness of the compiler in its attempts to inline functions and look for indirect inline opportunities due to previous optimization passes.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><b>-**falign-functions -falign-jumps</b></td>
+<td class="org-left"><b>-**foptimize-sibling-calls</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>-**falign-labels -falign-loops</b></td>
+<td class="org-left"><b>-**foptimize-strlen</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>-**fcaller-saves</b></td>
+<td class="org-left"><b>-**fpartial-inlining</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>-**fcode-hoisting</b></td>
+<td class="org-left"><b>-**fpeephole2</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>-**fcrossjumping</b></td>
+<td class="org-left"><b>-**freorder-blocks-algorithm=stc</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>-**fcse-follow-jumps -fcse-skip-blocks</b></td>
+<td class="org-left"><b>-**freorder-blocks-and-partition -freorder-functions</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>-**fdelete-null-pointer-checks</b></td>
+<td class="org-left"><b>-**frerun-cse-after-loop</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>-**fdevirtualize -fdevirtualize-speculatively</b></td>
+<td class="org-left"><b>-**fschedule-insns -fschedule-insns2</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>-**fexpensive-optimizations</b></td>
+<td class="org-left"><b>-**fsched-interblock -fsched-spec</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>-**ffinite-loops</b></td>
+<td class="org-left"><b>-**fstore-merging</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>-**fgcse -fgcse-lm</b></td>
+<td class="org-left"><b>-**fstrict-aliasing</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>-**fhoist-adjacent-loads</b></td>
+<td class="org-left"><b>-**fthread-jumps</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>-**finline-functions</b></td>
+<td class="org-left"><b>-**ftree-builtin-call-dce</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>-**finline-small-functions</b></td>
+<td class="org-left"><b>-**ftree-loop-vectorize</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>-**findirect-inlining</b></td>
+<td class="org-left"><b>-**ftree-pre</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>-fipa-bit-cp -**fipa-cp -fipa-icf</b></td>
+<td class="org-left"><b>-**ftree-slp-vectorize</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>-fipa-ra -**fipa-sra -fipa-vrp</b></td>
+<td class="org-left"><b>-**ftree-switch-conversion -ftree-tail-merge</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>-**fisolate-erroneous-paths-dereference</b></td>
+<td class="org-left"><b>-**ftree-vrp</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>-**flra-remat</b></td>
+<td class="org-left"><b>-**fvect-cost-model=very-cheap</b></td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Table 3.2 &#x2013; GCC optimization flags enabled in addition to the ones from -O1 when -O2 is enabled
+</p>
+</div>
+</li>
+
+<li><a id="org0872d6f"></a>Optimization level &#x2013;O3<br />
+<div class="outline-text-5" id="text-5-3-2-3">
+<p>
+<b>&#x2013;O3</b> is the most aggressive optimization option in GCC and it will optimize even when it leads to larger executable sizes as long as the program performs better. <b>-O3</b> enables the following flags presented in the next table beyond <b>&#x2013;O2</b>. We quickly discuss a few important ones first and then provide the complete list.
+</p>
+
+<p>
+<b>-fipa-cp-clone</b> creates function clones to make interprocedural constant propagation and other forms of optimization stronger by trading execution speed at the cost of higher executable sizes.
+</p>
+
+<p>
+<b>-fsplit-loops</b> attempts to split a loop if it can avoid branching within the loop by having the loop for one side and then the other side &#x2013; for instance, in a case where we check the side of execution in a trading algorithm within a loop and execute two different code blocks within the loop.
+</p>
+
+<p>
+<b>-funswitch-loops</b> moves loop invariant branches out of the loop to minimize branching.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><b>-**fgcse-after-reload</b></td>
+<td class="org-left"><b>-**fsplit-paths</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>-**fipa-cp-clone -floop-interchange</b></td>
+<td class="org-left"><b>-**ftree-loop-distribution</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>-**floop-unroll-and-jam</b></td>
+<td class="org-left"><b>-**ftree-partial-pre</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>-**fpeel-loops</b></td>
+<td class="org-left"><b>-**funswitch-loops</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>-**fpredictive-commoning</b></td>
+<td class="org-left"><b>-**fvect-cost-model=dynamic</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>-**fsplit-loops</b></td>
+<td class="org-left"><b>-**fversion-loops-for-strides</b></td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Table 3.3 &#x2013; GCC optimization flags enabled in addition to the ones from -O2 when -O3 is enabled
+</p>
+
+<p>
+We will discuss some additional compiler optimization flags we have found useful when it comes to optimizing low-latency applications.
+</p>
+</div>
+</li>
+
+<li><a id="org195475b"></a>Static linkage<br />
+<div class="outline-text-5" id="text-5-3-2-4">
+<p>
+The <b>&#x2013;l library</b> option is passed to the linker to specify which library to link the executables with. However, if the linker finds a static library that has a name such as <b>liblibrary.a</b> and a shared library that has a name such as <b>liblibrary.so</b>, then we must specify the <b>&#x2013;static</b> parameter to prevent linking with shared libraries and opt for the static library instead. We have discussed before why static linkage is preferred over shared library linkage for low-latency applications.
+</p>
+</div>
+</li>
+
+<li><a id="orgbefadac"></a>Target architecture<br />
+<div class="outline-text-5" id="text-5-3-2-5">
+<p>
+The <b>&#x2013;march</b> parameter is used to specify the target architecture for which the compiler should build the final executable binary. For example, <b>&#x2013;march=native</b> specifies that the compiler should build the executable for the architecture that it is being built on. We reiterate here that when the compiler knows the target architecture that the application is being built to run on, it can leverage information about that architecture, such as extended instruction sets and so on, to improve optimization.
+</p>
+</div>
+</li>
+
+<li><a id="org60a7b5c"></a>Warnings<br />
+<div class="outline-text-5" id="text-5-3-2-6">
+<p>
+The*&#x2013;Wall*, <b>&#x2013;Wextra</b>, and <b>&#x2013;Wpendantic</b> parameters control the number of warnings that are generated by the compiler when it detects a variety of different cases that are not technically errors but could be unsafe. It is advisable to turn these on for most applications because they detect potential bugs and typos in developers' code. While these do not directly affect the compiler's ability to optimize the application, sometimes, the warnings force developers to inspect cases of ambiguity or sub-optimal code, such as unexpected or implicit type conversions, which can be inefficient. The <b>&#x2013;Werror</b> parameter turns these warnings into errors and will force the developer to inspect and fix each case that generates a compiler warning before compilation can succeed.
+</p>
+</div>
+</li>
+
+<li><a id="orgaa53c37"></a>Unsafe fast math<br />
+<div class="outline-text-5" id="text-5-3-2-7">
+<p>
+This category of compiler optimization flags should not be enabled without a lot of consideration and due diligence. In C++, the compiler cannot apply a lot of floating-point optimizations that depend on properties such as floating-point operations yielding valid values, floating-point expressions being associative, and so on. To recap, this is because of the way floating-point values are represented in hardware, and a lot of these optimizations can lead to precision loss and different (and possibly incorrect) results. Enabling the <b>&#x2013;ffast-math</b> parameter in turn enables the following parameters:
+</p>
+
+<ul class="org-ul">
+<li><b>&#x2013;**fno-math-errno</b></li>
+<li><b>&#x2013;**funsafe-math-optimizations</b></li>
+<li><b>&#x2013;**ffinite-math-only</b></li>
+<li><b>&#x2013;**fno-rounding-math</b></li>
+<li><b>&#x2013;**fno-signaling-nans</b></li>
+<li><b>&#x2013;**fcx-limited-range</b></li>
+<li><b>&#x2013;**fexcess-precision=fast</b></li>
+</ul>
+
+<p>
+These parameters will allow the compiler to apply optimizations to floating-point expressions even if they are unsafe. These are not automatically enabled in any of the three optimization levels because they are unsafe and should only be enabled if the developer is confident that there are no errors or side effects that show up because of these.
+</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6ead175" class="outline-2">
+<h2 id="org6ead175"><span class="section-number-2">6.</span> Summary</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+In this chapter, first, we discussed general advice that applies to developing low-latency applications in any programming language. We discussed the ideal software engineering approach when it comes to these applications and how to think about, design, develop, and evaluate building blocks such as the data structures and algorithms to use.
+</p>
+
+<p>
+We emphasized that when it comes to low-latency application development specifically, the depth of knowledge on topics such as processor architecture, cache and memory layout and access, how the C++ programming language works under the hood, and how the compiler works to optimize your code will dictate your success. Measuring and improving performance is also a critical component for low-latency applications but we will dive into those details at the end of this book.
+</p>
+
+<p>
+We spent a lot of time discussing different C++ principles, constructs, and features with the objective of understanding how they are implemented at a lower level. The goal here was to unlearn sub-optimal practices and emphasize some of the ideal aspects of using C++ for low-latency application development.
+</p>
+
+<p>
+In the remainder of this book, as we build our low-latency electronic trading exchange ecosystem (collection of applications that interact with each other), we will reinforce and build on these ideas we discussed here as we avoid certain C++ features and use others instead.
+</p>
+
+<p>
+In the last section of this chapter, we discussed many aspects of the C++ compiler in detail. We tried to build an understanding of how compilers optimize developers' high-level code, as in, what techniques they have at their disposal. We also investigated scenarios in which the compiler fails to optimize a developer's code. The goal there was for you to understand how to use a compiler to your advantage when trying to output the most optimal machine code possible and help the compiler help you avoid conditions where the compiler fails to optimize. Finally, we looked at the different compiler optimization flags available for the GNU GCC compiler, which is what we will use in the rest of this book.
+</p>
+
+<p>
+We will put our theoretical knowledge into practice in the next chapter where we jump into implementing some common building blocks of low-latency applications in C++. We will keep our goal of building these components to be low-latency and highly performant. We will carefully use the principles and techniques we discussed in this chapter to build these high-performance components. In later chapters, we will use these components to build an electronic trading ecosystem.
+</p>
+
+<hr />
+
+<p>
+<a href="https://learning.oreilly.com/library/view/building-low-latency/9781837639359/B19434_03.xhtml#_idParaDest-58">https://learning.oreilly.com/library/view/building-low-latency/9781837639359/B19434_03.xhtml#_idParaDest-58</a>
+</p>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+Here's an example demonstrating the mentioned concepts using a simple <code>Vector2D</code> class:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #808080;">#include</span> <span style="color: #707183;">&lt;</span><span style="color: #008000;">iostream</span><span style="color: #707183;">&gt;</span>
+
+<span style="color: #4f97d7; font-weight: bold; font-style: italic;">class</span> <span style="color: #6434A3;">Vector2D</span> <span style="color: #707183;">{</span>
+<span style="color: #4f97d7; font-weight: bold; font-style: italic;">public</span>:
+    <span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">Default constructor with inline definition</span>
+    <span style="color: #4f97d7; font-weight: bold; font-style: italic;">constexpr</span> <span style="color: #006699;">Vector2D</span><span style="color: #7388D6;">()</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">noexcept</span> : x<span style="color: #7388D6;">(</span>0.0f<span style="color: #7388D6;">)</span>, y<span style="color: #7388D6;">(</span>0.0f<span style="color: #7388D6;">)</span> <span style="color: #7388D6;">{}</span>
+
+    <span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">Parameterized constructor with inline definition</span>
+    <span style="color: #4f97d7; font-weight: bold; font-style: italic;">constexpr</span> <span style="color: #006699;">Vector2D</span><span style="color: #7388D6;">(</span><span style="color: #6434A3;">float</span> <span style="color: #BA36A5;">x</span>, <span style="color: #6434A3;">float</span> <span style="color: #BA36A5;">y</span><span style="color: #7388D6;">)</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">noexcept</span> : x<span style="color: #7388D6;">(</span>x<span style="color: #7388D6;">)</span>, y<span style="color: #7388D6;">(</span>y<span style="color: #7388D6;">)</span> <span style="color: #7388D6;">{}</span>
+
+    <span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">Move constructor with inline definition</span>
+    <span style="color: #4f97d7; font-weight: bold; font-style: italic;">constexpr</span> <span style="color: #006699;">Vector2D</span><span style="color: #7388D6;">(</span><span style="color: #6434A3;">Vector2D</span>&amp;&amp; <span style="color: #BA36A5;">other</span><span style="color: #7388D6;">)</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">noexcept</span> : x<span style="color: #7388D6;">(</span>other.x<span style="color: #7388D6;">)</span>, y<span style="color: #7388D6;">(</span>other.y<span style="color: #7388D6;">)</span> <span style="color: #7388D6;">{</span>
+        other.x = 0.0f;
+        other.y = 0.0f;
+    <span style="color: #7388D6;">}</span>
+
+    <span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">Move assignment operator with inline definition</span>
+    <span style="color: #4f97d7; font-weight: bold; font-style: italic;">constexpr</span> <span style="color: #6434A3;">Vector2D</span>&amp; <span style="color: #4f97d7; font-weight: bold; font-style: italic;">operator</span><span style="color: #006699;">=</span><span style="color: #7388D6;">(</span><span style="color: #6434A3;">Vector2D</span>&amp;&amp; <span style="color: #BA36A5;">other</span><span style="color: #7388D6;">)</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">noexcept</span> <span style="color: #7388D6;">{</span>
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span> <span style="color: #909183;">(</span><span style="color: #4f97d7; font-weight: bold; font-style: italic;">this</span> != &amp;other<span style="color: #909183;">)</span> <span style="color: #909183;">{</span>
+            x = other.x;
+            y = other.y;
+            other.x = 0.0f;
+            other.y = 0.0f;
+        <span style="color: #909183;">}</span>
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">return</span> *<span style="color: #4f97d7; font-weight: bold; font-style: italic;">this</span>;
+    <span style="color: #7388D6;">}</span>
+
+    <span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">Deleted copy constructor</span>
+    <span style="color: #006699;">Vector2D</span><span style="color: #7388D6;">(</span><span style="color: #4f97d7; font-weight: bold; font-style: italic;">const</span> <span style="color: #6434A3;">Vector2D</span>&amp;<span style="color: #7388D6;">)</span> = <span style="color: #4f97d7; font-weight: bold; font-style: italic;">delete</span>;
+
+    <span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">Deleted copy assignment operator</span>
+    <span style="color: #6434A3;">Vector2D</span>&amp; <span style="color: #4f97d7; font-weight: bold; font-style: italic;">operator</span><span style="color: #006699;">=</span><span style="color: #7388D6;">(</span><span style="color: #4f97d7; font-weight: bold; font-style: italic;">const</span> <span style="color: #6434A3;">Vector2D</span>&amp;<span style="color: #7388D6;">)</span> = <span style="color: #4f97d7; font-weight: bold; font-style: italic;">delete</span>;
+
+    <span style="color: #4f97d7; font-weight: bold; font-style: italic;">constexpr</span> <span style="color: #6434A3;">float</span> <span style="color: #006699;">getX</span><span style="color: #7388D6;">()</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">const</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">noexcept</span> <span style="color: #7388D6;">{</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">return</span> x; <span style="color: #7388D6;">}</span>
+    <span style="color: #4f97d7; font-weight: bold; font-style: italic;">constexpr</span> <span style="color: #6434A3;">float</span> <span style="color: #006699;">getY</span><span style="color: #7388D6;">()</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">const</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">noexcept</span> <span style="color: #7388D6;">{</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">return</span> y; <span style="color: #7388D6;">}</span>
+
+<span style="color: #4f97d7; font-weight: bold; font-style: italic;">private</span>:
+    <span style="color: #6434A3;">float</span> <span style="color: #BA36A5;">x</span>, <span style="color: #BA36A5;">y</span>;
+<span style="color: #707183;">}</span>;
+
+<span style="color: #6434A3;">int</span> <span style="color: #006699;">main</span><span style="color: #707183;">()</span> <span style="color: #707183;">{</span>
+    <span style="color: #6434A3;">Vector2D</span> <span style="color: #BA36A5;">v1</span>; <span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">Default constructor is called</span>
+    <span style="color: #6434A3;">Vector2D</span> <span style="color: #BA36A5;">v2</span><span style="color: #7388D6;">(</span>1.0f, 2.0f<span style="color: #7388D6;">)</span>; <span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">Parameterized constructor is called</span>
+
+    <span style="color: #6434A3;">Vector2D</span> <span style="color: #BA36A5;">v3</span><span style="color: #7388D6;">(</span><span style="color: #D0372D;">std</span>::move<span style="color: #909183;">(</span>v2<span style="color: #909183;">)</span><span style="color: #7388D6;">)</span>; <span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">Move constructor is called</span>
+
+    v1 = <span style="color: #D0372D;">std</span>::move<span style="color: #7388D6;">(</span>v3<span style="color: #7388D6;">)</span>; <span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">Move assignment operator is called</span>
+
+    <span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">Vector2D v4(v1); // Error: copy constructor is deleted</span>
+    <span style="color: #8D8D84;">// </span><span style="color: #8D8D84; font-style: italic;">v1 = v2; // Error: copy assignment operator is deleted</span>
+
+    <span style="color: #D0372D;">std</span>::cout &lt;&lt; <span style="color: #008000;">"v1: ("</span> &lt;&lt; v1.getX<span style="color: #7388D6;">()</span> &lt;&lt; <span style="color: #008000;">", "</span> &lt;&lt; v1.getY<span style="color: #7388D6;">()</span> &lt;&lt; <span style="color: #008000;">")"</span> &lt;&lt; <span style="color: #D0372D;">std</span>::endl;
+
+    <span style="color: #4f97d7; font-weight: bold; font-style: italic;">return</span> 0;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+
+<p class="footpara">
+In this example, the <code>Vector2D</code> class has lightweight and efficient constructors and a destructor (which is implicitly defined). The constructors are defined with <code>constexpr</code> and <code>noexcept</code> to allow the compiler to inline them and avoid exceptions. The move constructor and move assignment operator are provided to enable efficient transfer of resources. The copy constructor and copy assignment operator are explicitly deleted to prevent unwanted copying of the object.
+</p></div></div>
+
+
+</div>
+</div></div>
+<div id="postamble" class="status">
+<p class="author">Author: Josh Kwok</p>
+<p class="date">Created: 2023-08-15 Tue 14:17</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
